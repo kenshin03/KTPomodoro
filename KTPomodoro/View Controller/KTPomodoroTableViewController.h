@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  KTPomodoroTableViewController.h
 //  KTPomodoro
 //
 //  Created by Kenny Tang on 12/31/14.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface KTPomodoroTableViewController : UITableViewController
 
 @end
-

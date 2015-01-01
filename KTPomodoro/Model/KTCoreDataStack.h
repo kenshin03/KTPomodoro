@@ -1,17 +1,20 @@
 //
-//  AppDelegate.h
+//  KTCoreDataStack.h
 //  KTPomodoro
 //
 //  Created by Kenny Tang on 12/31/14.
 //  Copyright (c) 2014 Kenny Tang. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "KTPomodoroTask.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface KTCoreDataStack : NSObject
 
-@property (strong, nonatomic) UIWindow *window;
++ (KTCoreDataStack*)sharedInstance;
+
+- (NSArray*)allTasks;
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
@@ -20,6 +23,4 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
-
 @end
-

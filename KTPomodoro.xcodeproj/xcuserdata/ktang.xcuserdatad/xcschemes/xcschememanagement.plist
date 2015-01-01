@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>KTPomodoro WatchKit App.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>KTPomodoro.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,6 +17,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>8E0F774B1A55D0CF0008C4ED</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>8EF55C271A54DFC1002962DF</key>
 		<dict>
 			<key>primary</key>
