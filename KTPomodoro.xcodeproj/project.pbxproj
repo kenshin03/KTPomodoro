@@ -1,0 +1,444 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8EF55C2E1A54DFC2002962DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF55C2D1A54DFC2002962DF /* main.m */; };
+		8EF55C311A54DFC2002962DF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF55C301A54DFC2002962DF /* AppDelegate.m */; };
+		8EF55C341A54DFC2002962DF /* KTPomodoro.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8EF55C321A54DFC2002962DF /* KTPomodoro.xcdatamodeld */; };
+		8EF55C371A54DFC2002962DF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF55C361A54DFC2002962DF /* ViewController.m */; };
+		8EF55C3A1A54DFC2002962DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EF55C381A54DFC2002962DF /* Main.storyboard */; };
+		8EF55C3C1A54DFC2002962DF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EF55C3B1A54DFC2002962DF /* Images.xcassets */; };
+		8EF55C3F1A54DFC2002962DF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EF55C3D1A54DFC2002962DF /* LaunchScreen.xib */; };
+		8EF55C4B1A54DFC2002962DF /* KTPomodoroTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF55C4A1A54DFC2002962DF /* KTPomodoroTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8EF55C451A54DFC2002962DF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8EF55C201A54DFC1002962DF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8EF55C271A54DFC1002962DF;
+			remoteInfo = KTPomodoro;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8EF55C281A54DFC2002962DF /* KTPomodoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KTPomodoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8EF55C2C1A54DFC2002962DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8EF55C2D1A54DFC2002962DF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8EF55C2F1A54DFC2002962DF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		8EF55C301A54DFC2002962DF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		8EF55C331A54DFC2002962DF /* KTPomodoro.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KTPomodoro.xcdatamodel; sourceTree = "<group>"; };
+		8EF55C351A54DFC2002962DF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		8EF55C361A54DFC2002962DF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		8EF55C391A54DFC2002962DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8EF55C3B1A54DFC2002962DF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		8EF55C3E1A54DFC2002962DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		8EF55C441A54DFC2002962DF /* KTPomodoroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KTPomodoroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8EF55C491A54DFC2002962DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8EF55C4A1A54DFC2002962DF /* KTPomodoroTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KTPomodoroTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8EF55C251A54DFC1002962DF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8EF55C411A54DFC2002962DF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8EF55C1F1A54DFC1002962DF = {
+			isa = PBXGroup;
+			children = (
+				8EF55C2A1A54DFC2002962DF /* KTPomodoro */,
+				8EF55C471A54DFC2002962DF /* KTPomodoroTests */,
+				8EF55C291A54DFC2002962DF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8EF55C291A54DFC2002962DF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8EF55C281A54DFC2002962DF /* KTPomodoro.app */,
+				8EF55C441A54DFC2002962DF /* KTPomodoroTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8EF55C2A1A54DFC2002962DF /* KTPomodoro */ = {
+			isa = PBXGroup;
+			children = (
+				8EF55C2F1A54DFC2002962DF /* AppDelegate.h */,
+				8EF55C301A54DFC2002962DF /* AppDelegate.m */,
+				8EF55C351A54DFC2002962DF /* ViewController.h */,
+				8EF55C361A54DFC2002962DF /* ViewController.m */,
+				8EF55C381A54DFC2002962DF /* Main.storyboard */,
+				8EF55C3B1A54DFC2002962DF /* Images.xcassets */,
+				8EF55C3D1A54DFC2002962DF /* LaunchScreen.xib */,
+				8EF55C321A54DFC2002962DF /* KTPomodoro.xcdatamodeld */,
+				8EF55C2B1A54DFC2002962DF /* Supporting Files */,
+			);
+			path = KTPomodoro;
+			sourceTree = "<group>";
+		};
+		8EF55C2B1A54DFC2002962DF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8EF55C2C1A54DFC2002962DF /* Info.plist */,
+				8EF55C2D1A54DFC2002962DF /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8EF55C471A54DFC2002962DF /* KTPomodoroTests */ = {
+			isa = PBXGroup;
+			children = (
+				8EF55C4A1A54DFC2002962DF /* KTPomodoroTests.m */,
+				8EF55C481A54DFC2002962DF /* Supporting Files */,
+			);
+			path = KTPomodoroTests;
+			sourceTree = "<group>";
+		};
+		8EF55C481A54DFC2002962DF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8EF55C491A54DFC2002962DF /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8EF55C271A54DFC1002962DF /* KTPomodoro */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8EF55C4E1A54DFC2002962DF /* Build configuration list for PBXNativeTarget "KTPomodoro" */;
+			buildPhases = (
+				8EF55C241A54DFC1002962DF /* Sources */,
+				8EF55C251A54DFC1002962DF /* Frameworks */,
+				8EF55C261A54DFC1002962DF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KTPomodoro;
+			productName = KTPomodoro;
+			productReference = 8EF55C281A54DFC2002962DF /* KTPomodoro.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8EF55C431A54DFC2002962DF /* KTPomodoroTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8EF55C511A54DFC2002962DF /* Build configuration list for PBXNativeTarget "KTPomodoroTests" */;
+			buildPhases = (
+				8EF55C401A54DFC2002962DF /* Sources */,
+				8EF55C411A54DFC2002962DF /* Frameworks */,
+				8EF55C421A54DFC2002962DF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8EF55C461A54DFC2002962DF /* PBXTargetDependency */,
+			);
+			name = KTPomodoroTests;
+			productName = KTPomodoroTests;
+			productReference = 8EF55C441A54DFC2002962DF /* KTPomodoroTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8EF55C201A54DFC1002962DF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = "Kenny Tang";
+				TargetAttributes = {
+					8EF55C271A54DFC1002962DF = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					8EF55C431A54DFC2002962DF = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 8EF55C271A54DFC1002962DF;
+					};
+				};
+			};
+			buildConfigurationList = 8EF55C231A54DFC1002962DF /* Build configuration list for PBXProject "KTPomodoro" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8EF55C1F1A54DFC1002962DF;
+			productRefGroup = 8EF55C291A54DFC2002962DF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8EF55C271A54DFC1002962DF /* KTPomodoro */,
+				8EF55C431A54DFC2002962DF /* KTPomodoroTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8EF55C261A54DFC1002962DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8EF55C3A1A54DFC2002962DF /* Main.storyboard in Resources */,
+				8EF55C3F1A54DFC2002962DF /* LaunchScreen.xib in Resources */,
+				8EF55C3C1A54DFC2002962DF /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8EF55C421A54DFC2002962DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8EF55C241A54DFC1002962DF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8EF55C311A54DFC2002962DF /* AppDelegate.m in Sources */,
+				8EF55C341A54DFC2002962DF /* KTPomodoro.xcdatamodeld in Sources */,
+				8EF55C371A54DFC2002962DF /* ViewController.m in Sources */,
+				8EF55C2E1A54DFC2002962DF /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8EF55C401A54DFC2002962DF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8EF55C4B1A54DFC2002962DF /* KTPomodoroTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8EF55C461A54DFC2002962DF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8EF55C271A54DFC1002962DF /* KTPomodoro */;
+			targetProxy = 8EF55C451A54DFC2002962DF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8EF55C381A54DFC2002962DF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8EF55C391A54DFC2002962DF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8EF55C3D1A54DFC2002962DF /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8EF55C3E1A54DFC2002962DF /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8EF55C4C1A54DFC2002962DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		8EF55C4D1A54DFC2002962DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8EF55C4F1A54DFC2002962DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = KTPomodoro/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		8EF55C501A54DFC2002962DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = KTPomodoro/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		8EF55C521A54DFC2002962DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = KTPomodoroTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KTPomodoro.app/KTPomodoro";
+			};
+			name = Debug;
+		};
+		8EF55C531A54DFC2002962DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = KTPomodoroTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KTPomodoro.app/KTPomodoro";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8EF55C231A54DFC1002962DF /* Build configuration list for PBXProject "KTPomodoro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8EF55C4C1A54DFC2002962DF /* Debug */,
+				8EF55C4D1A54DFC2002962DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8EF55C4E1A54DFC2002962DF /* Build configuration list for PBXNativeTarget "KTPomodoro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8EF55C4F1A54DFC2002962DF /* Debug */,
+				8EF55C501A54DFC2002962DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		8EF55C511A54DFC2002962DF /* Build configuration list for PBXNativeTarget "KTPomodoroTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8EF55C521A54DFC2002962DF /* Debug */,
+				8EF55C531A54DFC2002962DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8EF55C321A54DFC2002962DF /* KTPomodoro.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8EF55C331A54DFC2002962DF /* KTPomodoro.xcdatamodel */,
+			);
+			currentVersion = 8EF55C331A54DFC2002962DF /* KTPomodoro.xcdatamodel */;
+			path = KTPomodoro.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 8EF55C201A54DFC1002962DF /* Project object */;
+}
