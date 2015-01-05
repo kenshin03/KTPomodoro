@@ -9,7 +9,6 @@
 #import "KTWatchTasksRowInterfaceController.h"
 #import <WatchKit/WatchKit.h>
 
-
 @implementation KTWatchTasksRowInterfaceController
 
 @end

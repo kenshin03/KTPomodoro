@@ -57,6 +57,9 @@
                     <items>
                         <group width="1" alignment="left" layout="vertical" id="jNl-Rj-2IE" userLabel="Header">
                             <items>
+                                <label alignment="center" text="00:00" id="BRB-KF-Acu" userLabel="timeLabel">
+                                    <fontDescription key="font" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="39"/>
+                                </label>
                                 <label alignment="left" text="Task Name" numberOfLines="2" id="e3Z-Ff-gdu">
                                     <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                                 </label>
@@ -101,6 +104,15 @@
                             </items>
                         </group>
                     </items>
+                    <menu key="menu" id="haA-fW-ubq">
+                        <items>
+                            <menuItem title="Interrupt" icon="block" id="yay-Tr-Idv">
+                                <connections>
+                                    <action selector="interruptTask:" destination="AgC-eL-Hgc" id="GjG-Ei-W2E"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
                     <edgeInsets key="margins" left="8" right="8" top="0.0" bottom="0.0"/>
                     <connections>
                         <outlet property="actualPomoLabel" destination="Qk7-R3-hig" id="EKr-pK-GCB"/>
@@ -108,6 +120,7 @@
                         <outlet property="interruptionsLabel" destination="S64-Ly-S5S" id="TIa-mI-LFO"/>
                         <outlet property="plannedPomoLabel" destination="yY0-Uo-yOC" id="rgm-jQ-1l3"/>
                         <outlet property="taskNameLabel" destination="e3Z-Ff-gdu" id="BJ4-Ge-Xos"/>
+                        <outlet property="timeLabel" destination="BRB-KF-Acu" id="Gc0-gg-jsz"/>
                     </connections>
                 </controller>
             </objects>
@@ -127,4 +140,5 @@
             <point key="canvasLocation" x="164" y="514"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>
