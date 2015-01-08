@@ -12,7 +12,7 @@
 
 @protocol KTActiveTimerDelegate <NSObject>
 
-- (void)timerDidFire:(KTPomodoroTask*)task elapsedSecs:(NSUInteger)secs;
+- (void)timerDidFire:(KTPomodoroTask*)task totalElapsedSecs:(NSUInteger)secs minutes:(NSUInteger)min seconds:(NSUInteger)seconds;
 
 @end
 

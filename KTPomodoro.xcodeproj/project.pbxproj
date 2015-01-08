@@ -22,6 +22,8 @@
 		8E0F77721A55E09D0008C4ED /* KTWatchTasksListInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E0F77711A55E09D0008C4ED /* KTWatchTasksListInterfaceController.m */; };
 		8E2668011A5AF05800C36D0C /* KTPomodoroTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2668001A5AF05800C36D0C /* KTPomodoroTask.m */; };
 		8E2668021A5AF05800C36D0C /* KTPomodoroTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2668001A5AF05800C36D0C /* KTPomodoroTask.m */; };
+		8E64C1061A5F4B2700A4D526 /* KTPomodoroTaskConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C1051A5F4B2700A4D526 /* KTPomodoroTaskConstants.m */; };
+		8E64C1071A5F4B2700A4D526 /* KTPomodoroTaskConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C1051A5F4B2700A4D526 /* KTPomodoroTaskConstants.m */; };
 		8EF55C2E1A54DFC2002962DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF55C2D1A54DFC2002962DF /* main.m */; };
 		8EF55C311A54DFC2002962DF /* KTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF55C301A54DFC2002962DF /* KTAppDelegate.m */; };
 		8EF55C3C1A54DFC2002962DF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EF55C3B1A54DFC2002962DF /* Images.xcassets */; };
@@ -93,6 +95,8 @@
 		8E0F77711A55E09D0008C4ED /* KTWatchTasksListInterfaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTWatchTasksListInterfaceController.m; sourceTree = "<group>"; };
 		8E2667FF1A5AF05800C36D0C /* KTPomodoroTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KTPomodoroTask.h; path = Model/KTPomodoroTask.h; sourceTree = "<group>"; };
 		8E2668001A5AF05800C36D0C /* KTPomodoroTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KTPomodoroTask.m; path = Model/KTPomodoroTask.m; sourceTree = "<group>"; };
+		8E64C1041A5F4B2700A4D526 /* KTPomodoroTaskConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KTPomodoroTaskConstants.h; path = Model/KTPomodoroTaskConstants.h; sourceTree = "<group>"; };
+		8E64C1051A5F4B2700A4D526 /* KTPomodoroTaskConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KTPomodoroTaskConstants.m; path = Model/KTPomodoroTaskConstants.m; sourceTree = "<group>"; };
 		8EF55C281A54DFC2002962DF /* KTPomodoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KTPomodoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EF55C2C1A54DFC2002962DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8EF55C2D1A54DFC2002962DF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -284,6 +288,8 @@
 				8E2668001A5AF05800C36D0C /* KTPomodoroTask.m */,
 				8EF55C5D1A54E29F002962DF /* KTCoreDataStack.h */,
 				8EF55C5E1A54E29F002962DF /* KTCoreDataStack.m */,
+				8E64C1041A5F4B2700A4D526 /* KTPomodoroTaskConstants.h */,
+				8E64C1051A5F4B2700A4D526 /* KTPomodoroTaskConstants.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -465,6 +471,7 @@
 			files = (
 				8E0F77721A55E09D0008C4ED /* KTWatchTasksListInterfaceController.m in Sources */,
 				8E0F77631A55D0FC0008C4ED /* KTCoreDataStack.m in Sources */,
+				8E64C1071A5F4B2700A4D526 /* KTPomodoroTaskConstants.m in Sources */,
 				8E0F776F1A55E0770008C4ED /* KTWatchTasksRowInterfaceController.m in Sources */,
 				8E0F77671A55D0FC0008C4ED /* KTActiveTimer.m in Sources */,
 				8E0F77441A55D0CF0008C4ED /* KTWatchInterfaceController.m in Sources */,
@@ -484,6 +491,7 @@
 				8E2668011A5AF05800C36D0C /* KTPomodoroTask.m in Sources */,
 				8EF55C6F1A54EC48002962DF /* KTPomodoroTableViewCell.m in Sources */,
 				8E0F77391A55CB2F0008C4ED /* KTActiveTimer.m in Sources */,
+				8E64C1061A5F4B2700A4D526 /* KTPomodoroTaskConstants.m in Sources */,
 				8EF55C6A1A54EA82002962DF /* KTPomodoroModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

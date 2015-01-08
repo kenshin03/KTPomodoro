@@ -10,6 +10,7 @@
 #import "KTActiveTimer.h"
 #import "KTCoreDataStack.h"
 #import "KTPomodoroTask.h"
+#import "KTPomodoroTaskConstants.h"
 
 @interface KTWatchInterfaceController()<KTActiveTimerDelegate>
 
@@ -70,17 +71,20 @@
     // increment interrupt
     NSInteger interruptions = [self.task.interruptions integerValue];
     self.task.interruptions = @(++interruptions);
+
     [self.interruptionsLabel setText:[NSString stringWithFormat:@"%li", (long)interruptions]];
     self.task.desc = @"interrupted!";
 }
 
 - (void)startTask:(id)sender
 {
+    [KTActiveTimer sharedInstance].task = self.task;
     [KTActiveTimer sharedInstance].delegate = self;
     [[KTActiveTimer sharedInstance] start];
     [self.timeLabel setText:[NSString stringWithFormat:@"%@:00", @([KTActiveTimer pomodoroDurationMinutes])]];
 
     [self clearAllMenuItems];
+    [self addMenuItemWithItemIcon:WKMenuItemIconBlock title:@"Interrupt" action:@selector(interruptTask:)];
     [self addMenuItemWithItemIcon:WKMenuItemIconPause title:@"Stop" action:@selector(stopTask:)];
 
 }
@@ -91,8 +95,8 @@
     [self clearAllMenuItems];
     [self addMenuItemWithItemIcon:WKMenuItemIconPlay title:@"Start" action:@selector(startTask:)];
     [self.timeLabel setText:@"00:00"];
-
 }
+
 
 - (void)openApp:(id)sender
 {
@@ -110,22 +114,19 @@
 
 #pragma mark - KTActiveTimerDelegate
 
-- (void)timerDidFire:(KTPomodoroTask *)task elapsedSecs:(NSUInteger)secs
+- (void)timerDidFire:(KTPomodoroTask*)task totalElapsedSecs:(NSUInteger)secs minutes:(NSUInteger)displayMinutes seconds:(NSUInteger)displaySecs
 {
-    // update label
-    NSInteger pomodoroSecs = [KTActiveTimer pomodoroDurationMinutes]*60 - secs;
-
-    NSUInteger displayMinutes = (NSUInteger)floor(pomodoroSecs/60.0f);
-    NSUInteger displaySecs = (NSUInteger)pomodoroSecs%60;
-
     NSString *displayMinutesString = (displayMinutes>9)?[@(displayMinutes) stringValue ]:[NSString stringWithFormat:@"0%@", @(displayMinutes)];
     NSString *displaySecsString = (displaySecs>9)?[@(displaySecs) stringValue ]:[NSString stringWithFormat:@"0%@", @(displaySecs)];
 
     NSString *remainingTimeString = [NSString stringWithFormat:@"%@:%@", displayMinutesString, displaySecsString];
 
     [self.timeLabel setText:remainingTimeString];
+    [self.actualPomoLabel setText:[task.actual_pomo stringValue]];
 
-    
+    if ([task.status integerValue] == KTPomodoroTaskStatusCompleted) {
+        [self stopTask:nil];
+    }
 }
 
 @end

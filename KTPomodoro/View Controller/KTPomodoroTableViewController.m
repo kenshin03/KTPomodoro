@@ -116,16 +116,12 @@ static CGFloat kKTPomodoroTableRowHeight = 110.0f;
 
 #pragma mark - Timer delegate
 
-- (void)timerDidFire:(KTPomodoroTask *)task elapsedSecs:(NSUInteger)secs
+- (void)timerDidFire:(KTPomodoroTask*)task totalElapsedSecs:(NSUInteger)secs minutes:(NSUInteger)displayMinutes seconds:(NSUInteger)displaySecs
 {
+
     KTPomodoroTableViewCell *cell = (KTPomodoroTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:self.activeTimerRowIndex inSection:0]];
 
     // update label
-    NSInteger pomodoroSecs = [KTActiveTimer pomodoroDurationMinutes]*60 - secs;
-
-    NSUInteger displayMinutes = (NSUInteger)floor(pomodoroSecs/60.0f);
-    NSUInteger displaySecs = (NSUInteger)pomodoroSecs%60;
-
     NSString *displayMinutesString = (displayMinutes>9)?[@(displayMinutes) stringValue ]:[NSString stringWithFormat:@"0%@", @(displayMinutes)];
     NSString *displaySecsString = (displaySecs>9)?[@(displaySecs) stringValue ]:[NSString stringWithFormat:@"0%@", @(displaySecs)];
 

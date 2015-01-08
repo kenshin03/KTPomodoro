@@ -24,16 +24,12 @@
                                         <tableRow identifier="KTWatchTasksRowInterfaceController" id="icP-SL-2l0" customClass="KTWatchTasksRowInterfaceController">
                                             <group key="rootItem" width="1" alignment="left" layout="vertical" id="2l1-Pm-jqv">
                                                 <items>
-                                                    <label alignment="left" text="Task Name" textAlignment="left" numberOfLines="2" id="gDw-9j-Hfy">
-                                                        <fontDescription key="font" style="UICTFontTextStyleBody"/>
-                                                    </label>
-                                                    <label alignment="left" text="Desc" numberOfLines="2" id="bnt-Jd-UVD">
-                                                        <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                                    <label alignment="left" verticalAlignment="center" text="Task Name" textAlignment="left" numberOfLines="2" id="gDw-9j-Hfy">
+                                                        <fontDescription key="font" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                                                     </label>
                                                 </items>
                                             </group>
                                             <connections>
-                                                <outlet property="descLabel" destination="bnt-Jd-UVD" id="3PF-7S-11X"/>
                                                 <outlet property="taskNameLabel" destination="gDw-9j-Hfy" id="0Ft-pJ-raP"/>
                                                 <segue destination="AgC-eL-Hgc" kind="push" id="DCm-AL-j4e"/>
                                             </connections>
@@ -58,16 +54,14 @@
                         <group width="1" alignment="left" layout="vertical" id="jNl-Rj-2IE" userLabel="Header">
                             <items>
                                 <label alignment="center" text="00:00" id="BRB-KF-Acu" userLabel="timeLabel">
-                                    <fontDescription key="font" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="39"/>
+                                    <fontDescription key="font" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="47"/>
                                 </label>
                                 <label alignment="left" text="Task Name" numberOfLines="2" id="e3Z-Ff-gdu">
-                                    <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                    <fontDescription key="font" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                                 </label>
                                 <label alignment="left" text="Description" numberOfLines="3" id="Ugc-Kp-CM6">
-                                    <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
+                                    <fontDescription key="font" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                 </label>
-                                <group width="1" height="10" alignment="left" id="WeT-WQ-x7K" userLabel="Padding"/>
-                                <separator alignment="left" id="1Ep-W2-UVQ"/>
                             </items>
                         </group>
                         <group width="1" height="10" alignment="left" id="SlV-4S-jEW" userLabel="Padding"/>
@@ -75,44 +69,39 @@
                             <items>
                                 <group width="1" alignment="left" id="Nym-Td-WTS" userLabel="Planned Pomo">
                                     <items>
-                                        <label alignment="left" text="Planned :" id="qDM-fv-Dg2">
-                                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                        <label width="0.5" alignment="left" text="Planned :" textAlignment="left" id="qDM-fv-Dg2">
+                                            <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="8"/>
                                         </label>
-                                        <label alignment="right" text="1" textAlignment="right" id="yY0-Uo-yOC" userLabel="plannedPomoLabel"/>
+                                        <label width="0.5" alignment="right" text="1" textAlignment="right" id="yY0-Uo-yOC" userLabel="plannedPomoLabel">
+                                            <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
+                                        </label>
                                     </items>
                                 </group>
                                 <group width="1" alignment="left" id="NV3-eG-EPG" userLabel="Actual Pomo">
                                     <items>
-                                        <label alignment="left" text="Actual :" id="DaR-p2-Zgw" userLabel="Actual :">
-                                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                        <label width="0.5" alignment="left" text="Actual :" textAlignment="left" id="DaR-p2-Zgw" userLabel="Actual :">
+                                            <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="8"/>
                                         </label>
-                                        <label alignment="right" text="1" id="Qk7-R3-hig" userLabel="actualPomoLabel">
-                                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                        <label width="0.5" alignment="right" text="1" textAlignment="right" id="Qk7-R3-hig" userLabel="actualPomoLabel">
+                                            <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
                                         </label>
                                     </items>
                                 </group>
                                 <group width="1" alignment="left" id="ZAh-Fk-emA" userLabel="Interruptions">
                                     <items>
-                                        <label alignment="left" text="Interruptions :" id="pIx-aS-ig1" userLabel="Interruptions">
-                                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                        <label width="0.5" alignment="left" text="Interrupts :" textAlignment="left" id="pIx-aS-ig1" userLabel="Interruptions">
+                                            <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="8"/>
                                         </label>
-                                        <label alignment="right" text="1" id="S64-Ly-S5S" userLabel="interruptionsLabel">
-                                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                        <label width="0.5" alignment="right" text="1" textAlignment="right" id="S64-Ly-S5S" userLabel="interruptionsLabel">
+                                            <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
                                         </label>
                                     </items>
                                 </group>
                             </items>
                         </group>
+                        <group width="1" height="10" alignment="left" id="Lvj-ob-cAR" userLabel="Padding"/>
                     </items>
-                    <menu key="menu" id="haA-fW-ubq">
-                        <items>
-                            <menuItem title="Interrupt" icon="block" id="yay-Tr-Idv">
-                                <connections>
-                                    <action selector="interruptTask:" destination="AgC-eL-Hgc" id="GjG-Ei-W2E"/>
-                                </connections>
-                            </menuItem>
-                        </items>
-                    </menu>
+                    <menu key="menu" id="haA-fW-ubq"/>
                     <edgeInsets key="margins" left="8" right="8" top="0.0" bottom="0.0"/>
                     <connections>
                         <outlet property="actualPomoLabel" destination="Qk7-R3-hig" id="EKr-pK-GCB"/>
