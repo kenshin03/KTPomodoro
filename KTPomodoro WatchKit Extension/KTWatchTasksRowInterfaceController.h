@@ -13,5 +13,6 @@
 
 @property (weak, nonatomic) IBOutlet WKInterfaceLabel *taskNameLabel;
 @property (weak, nonatomic) IBOutlet WKInterfaceLabel *descLabel;
+@property (weak, nonatomic) IBOutlet WKInterfaceLabel *taskStatusLabel;
 
 @end

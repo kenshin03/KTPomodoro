@@ -14,7 +14,7 @@
                             <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                         </label>
                     </items>
-                    <notificationCategory key="notificationCategory" identifier="TaskFinishedCategory" offsetNotificationContent="NO" id="FwE-Ff-uRY" userLabel="TaskFinishedCategory">
+                    <notificationCategory key="notificationCategory" identifier="TaskCompletedCategory" offsetNotificationContent="NO" id="FwE-Ff-uRY" userLabel="TaskCompletedCategory">
                         <color key="sashColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </notificationCategory>
                     <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

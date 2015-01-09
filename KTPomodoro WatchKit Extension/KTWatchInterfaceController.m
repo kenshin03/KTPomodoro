@@ -92,10 +92,16 @@
 - (void)stopTask:(id)sender
 {
     [[KTActiveTimer sharedInstance] invalidate];
+    [self taskCompleted];
+}
+
+- (void)taskCompleted
+{
     [self clearAllMenuItems];
     [self addMenuItemWithItemIcon:WKMenuItemIconPlay title:@"Start" action:@selector(startTask:)];
     [self addMenuItemWithItemIcon:WKMenuItemIconTrash title:@"Delete" action:@selector(deleteTask:)];
     [self.timeLabel setText:@"00:00"];
+
 }
 
 - (void)deleteTask:(id)sender
@@ -134,7 +140,7 @@
     [self.actualPomoLabel setText:[task.actual_pomo stringValue]];
 
     if ([task.status integerValue] == KTPomodoroTaskStatusCompleted) {
-        [self stopTask:nil];
+        [self taskCompleted];
     }
 }
 

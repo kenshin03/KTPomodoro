@@ -2,8 +2,14 @@
     "aps": {
         "alert": "Task #1 has finished.",
         "title": "Task #1",
-        "category": "TaskFinishedCategory"
+        "category": "TaskCompletedCategory"
     },
+    "WatchKit Simulator Actions" : [
+                                    {
+                                    "title" : "Next Task",
+                                    "identifier" : "TaskCompletedNotification"
+                                    }
+                                    ],
     "payload":{
         "id":"task1",
         "name":"Task 1",

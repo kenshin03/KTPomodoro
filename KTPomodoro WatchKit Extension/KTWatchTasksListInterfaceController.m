@@ -9,8 +9,8 @@
 #import "KTWatchTasksListInterfaceController.h"
 #import "KTCoreDataStack.h"
 #import "KTPomodoroTask.h"
+#import "KTPomodoroTaskConstants.h"
 #import "KTWatchTasksRowInterfaceController.h"
-
 
 @interface KTWatchTasksListInterfaceController()
 
@@ -53,6 +53,11 @@
         KTWatchTasksRowInterfaceController *row = (KTWatchTasksRowInterfaceController*)[self.table rowControllerAtIndex:idx];
         [row.taskNameLabel setText:task.name];
         [row.descLabel setText:task.desc];
+        if ([task.status integerValue] == KTPomodoroTaskStatusCompleted) {
+            [row.taskStatusLabel setText:@"✓"];
+        }else{
+            [row.taskStatusLabel setText:@""];
+        }
     }];
 
 }

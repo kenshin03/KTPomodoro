@@ -62,7 +62,7 @@
 
     NSDictionary *payload = remoteNotification[@"payload"];
     //    NSString *taskID = payload[@"id"];
-    NSString *taskName = payload[@"name"];
+//    NSString *taskName = payload[@"name"];
     NSNumber *plannedPomos = payload[@"planned_pomos"];
     NSNumber *actualPomos = payload[@"actual_pomos"];
     NSNumber *interrupts = payload[@"interrupts"];
@@ -74,11 +74,6 @@
     [self.alertLabel setText:alertString];
 
 
-    // This method is called when a remote notification needs to be presented.
-    // Implement it if you use a dynamic notification interface.
-    // Populate your dynamic notification inteface as quickly as possible.
-    //
-    // After populating your dynamic notification interface call the completion block.
     completionHandler(WKUserNotificationInterfaceTypeCustom);
 }
 
