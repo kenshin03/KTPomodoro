@@ -1,24 +1,25 @@
 //
-//  KTWatchNotificationController.m
+//  KTWatchTaskCompletedNotificationController.m
 //  KTPomodoro
 //
-//  Created by Kenny Tang on 1/8/15.
+//  Created by Kenny Tang on 1/9/15.
 //  Copyright (c) 2015 Kenny Tang. All rights reserved.
 //
 
-#import "KTWatchNotificationController.h"
+#import "KTWatchTaskCompletedNotificationController.h"
 
 
-@interface KTWatchNotificationController()
+@interface KTWatchTaskCompletedNotificationController()
 
 @property (nonatomic) IBOutlet WKInterfaceLabel *alertLabel;
-@property (nonatomic) IBOutlet WKInterfaceLabel *taskNameLabel;
-@property (nonatomic) IBOutlet WKInterfaceLabel *remainingPomodorosLabel;
+@property (nonatomic) IBOutlet WKInterfaceLabel *plannedPomosLabel;
+@property (nonatomic) IBOutlet WKInterfaceLabel *actualPomosLabel;
+@property (nonatomic) IBOutlet WKInterfaceLabel *interruptionsLabel;
 
 @end
 
 
-@implementation KTWatchNotificationController
+@implementation KTWatchTaskCompletedNotificationController
 
 - (instancetype)init {
     self = [super init];
@@ -42,8 +43,8 @@
 
 - (void)didReceiveLocalNotification:(UILocalNotification *)localNotification withCompletion:(void (^)(WKUserNotificationInterfaceType))completionHandler {
 
-    NSLog(@"didReceiveLocalNotification");
 
+    NSLog(@"didReceiveLocalNotification");
 
     // This method is called when a local notification needs to be presented.
     // Implement it if you use a dynamic notification interface.
@@ -57,10 +58,21 @@
 
     NSLog(@"didReceiveRemoteNotification");
 
-    NSDictionary *payloadDict = remoteNotification[@"aps"];
-    NSString *alertString = payloadDict[@"alert"];
+    NSString *alertString = remoteNotification[@"aps"][@"alert"];
+
+    NSDictionary *payload = remoteNotification[@"payload"];
+    //    NSString *taskID = payload[@"id"];
+    NSString *taskName = payload[@"name"];
+    NSNumber *plannedPomos = payload[@"planned_pomos"];
+    NSNumber *actualPomos = payload[@"actual_pomos"];
+    NSNumber *interrupts = payload[@"interrupts"];
+
+    [self.plannedPomosLabel setText:[plannedPomos stringValue]];
+    [self.actualPomosLabel setText:[actualPomos stringValue]];
+    [self.interruptionsLabel setText:[interrupts stringValue]];
 
     [self.alertLabel setText:alertString];
+
 
     // This method is called when a remote notification needs to be presented.
     // Implement it if you use a dynamic notification interface.

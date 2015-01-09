@@ -126,14 +126,14 @@
                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="14"/>
                 </glanceController>
             </objects>
-            <point key="canvasLocation" x="164" y="514"/>
+            <point key="canvasLocation" x="137" y="413"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="kcJ-mI-mns">
             <objects>
                 <notificationController id="y9J-5g-3db">
                     <items>
-                        <label alignment="center" verticalAlignment="center" text="Alert Label" numberOfLines="0" id="UL2-7y-tZV">
+                        <label width="0.90000000000000002" alignment="center" verticalAlignment="center" text="Alert Label" numberOfLines="0" id="UL2-7y-tZV">
                             <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                         </label>
                     </items>
@@ -150,14 +150,14 @@
             </objects>
             <point key="canvasLocation" x="392" y="307"/>
         </scene>
-        <!--Watch Notification Controller-->
+        <!--Watch Pomodoro Completed Notification Controller-->
         <scene sceneID="lVT-1s-FpL">
             <objects>
-                <controller id="3sX-EN-EeI" customClass="KTWatchNotificationController">
+                <controller id="3sX-EN-EeI" customClass="KTWatchPomodoroCompletedNotificationController">
                     <items>
                         <group width="1" alignment="left" id="pwj-qd-HGA" userLabel="Content">
                             <items>
-                                <label alignment="center" text="Label" numberOfLines="0" id="dRC-8v-VBg">
+                                <label width="0.90000000000000002" alignment="center" text="Label" numberOfLines="0" id="dRC-8v-VBg">
                                     <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                 </label>
                             </items>
@@ -185,6 +185,8 @@
                     <edgeInsets key="margins" left="1" right="1" top="0.0" bottom="10"/>
                     <connections>
                         <outlet property="alertLabel" destination="dRC-8v-VBg" id="IlW-pD-9DZ"/>
+                        <outlet property="remainingPomodorosLabel" destination="p9V-xr-MWC" id="jFs-eA-KF3"/>
+                        <outlet property="taskNameLabel" destination="M10-nt-sZ8" id="e8j-EO-OJO"/>
                     </connections>
                 </controller>
             </objects>

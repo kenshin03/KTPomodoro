@@ -9,6 +9,6 @@
 #import <WatchKit/WatchKit.h>
 #import <Foundation/Foundation.h>
 
-@interface KTWatchNotificationController : WKUserNotificationInterfaceController
+@interface KTWatchPomodoroCompletedNotificationController : WKUserNotificationInterfaceController
 
 @end

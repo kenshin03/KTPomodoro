@@ -1,0 +1,15 @@
+{
+    "aps": {
+        "alert": "Task #1 has finished.",
+        "title": "Task #1",
+        "category": "TaskFinishedCategory"
+    },
+    "payload":{
+        "id":"task1",
+        "name":"Task 1",
+        "pomos_left":0,
+        "planned_pomos":1,
+        "actual_pomos":2,
+        "interrupts":0,
+    }
+}

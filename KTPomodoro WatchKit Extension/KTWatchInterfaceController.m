@@ -86,7 +86,7 @@
 
     [self clearAllMenuItems];
     [self addMenuItemWithItemIcon:WKMenuItemIconBlock title:@"Interrupt" action:@selector(interruptTask:)];
-    [self addMenuItemWithItemIcon:WKMenuItemIconPause title:@"Stop" action:@selector(stopTask:)];
+    [self addMenuItemWithItemIcon:WKMenuItemIconDecline title:@"Stop" action:@selector(stopTask:)];
 }
 
 - (void)stopTask:(id)sender

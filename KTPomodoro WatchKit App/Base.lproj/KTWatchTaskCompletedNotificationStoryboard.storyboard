@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6724" systemVersion="14C81f" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3735"/>
+    </dependencies>
+    <scenes>
+        <!--Task Ended Static Notification Controller-->
+        <scene sceneID="jSO-so-Ok7">
+            <objects>
+                <notificationController id="b1l-fb-WRQ" userLabel="Task Ended Static Notification Controller">
+                    <items>
+                        <label width="0.90000000000000002" alignment="center" verticalAlignment="center" text="Alert Label" numberOfLines="0" id="Clr-Vd-ARg">
+                            <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                        </label>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="TaskFinishedCategory" offsetNotificationContent="NO" id="FwE-Ff-uRY" userLabel="TaskFinishedCategory">
+                        <color key="sashColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </notificationCategory>
+                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <edgeInsets key="margins" left="1" right="1" top="0.0" bottom="20"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="Clr-Vd-ARg" id="k8O-Wc-Z1Y"/>
+                        <segue destination="ucb-3c-RHw" kind="relationship" relationship="dynamicNotificationInterface" id="e6l-f6-w6j"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="397" y="537"/>
+        </scene>
+        <!--Watch Task Completed Notification Controller-->
+        <scene sceneID="ivh-JN-q9c">
+            <objects>
+                <controller id="ucb-3c-RHw" customClass="KTWatchTaskCompletedNotificationController">
+                    <items>
+                        <group width="1" alignment="left" id="FiH-9f-rsZ" userLabel="Content">
+                            <items>
+                                <label width="0.90000000000000002" alignment="center" text="Label" numberOfLines="0" id="sw9-lN-0C2">
+                                    <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                </label>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" layout="vertical" id="1zw-XF-jsX" userLabel="TaskInfo">
+                            <items>
+                                <group width="1" alignment="left" id="onQ-7N-596" userLabel="planned pomos group">
+                                    <items>
+                                        <label width="0.5" alignment="right" text="2" textAlignment="left" id="xCa-qL-UZF">
+                                            <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
+                                        </label>
+                                        <label width="0.5" alignment="center" text="Planned :" textAlignment="left" id="jr5-vF-49k" userLabel="plannedPomodorosLabel">
+                                            <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
+                                        </label>
+                                    </items>
+                                </group>
+                                <group width="1" alignment="left" id="ybE-Pc-9eS" userLabel="actual pomos group">
+                                    <items>
+                                        <label width="0.5" alignment="right" text="2" textAlignment="left" id="kqd-WN-Bnm">
+                                            <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
+                                        </label>
+                                        <label width="0.5" alignment="center" text="Actual :" textAlignment="left" id="XNe-uu-BIT" userLabel="actualPomodorosLabel">
+                                            <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
+                                        </label>
+                                    </items>
+                                </group>
+                                <group width="1" alignment="left" id="lmc-K7-IeW" userLabel="interruptions group">
+                                    <items>
+                                        <label width="0.5" alignment="right" text="2" textAlignment="left" id="P6h-cQ-lBj">
+                                            <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
+                                        </label>
+                                        <label width="0.5" alignment="center" text="Interrupts :" textAlignment="left" id="5n4-lp-dqd" userLabel="interruptionsLabel">
+                                            <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
+                                        </label>
+                                    </items>
+                                </group>
+                            </items>
+                            <edgeInsets key="margins" left="10" right="0.0" top="10" bottom="0.0"/>
+                        </group>
+                    </items>
+                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <edgeInsets key="margins" left="1" right="1" top="0.0" bottom="10"/>
+                    <connections>
+                        <outlet property="actualPomosLabel" destination="kqd-WN-Bnm" id="get-7f-wO2"/>
+                        <outlet property="alertLabel" destination="sw9-lN-0C2" id="sw4-jh-KWY"/>
+                        <outlet property="interruptionsLabel" destination="P6h-cQ-lBj" id="JjG-0V-z2s"/>
+                        <outlet property="plannedPomosLabel" destination="xCa-qL-UZF" id="LiR-DY-MlC"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="697" y="537"/>
+        </scene>
+    </scenes>
+</document>

@@ -10,5 +10,9 @@
             "identifier" : "PomodoroFinishedNotification"
         }
     ],
-    "taskID":"task1"
+    "payload":{
+        "id":"task1",
+        "name":"Task 1",
+        "pomos_left":2
+    }
 }
