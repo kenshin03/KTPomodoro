@@ -128,6 +128,68 @@
             </objects>
             <point key="canvasLocation" x="164" y="514"/>
         </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="kcJ-mI-mns">
+            <objects>
+                <notificationController id="y9J-5g-3db">
+                    <items>
+                        <label alignment="center" verticalAlignment="center" text="Alert Label" numberOfLines="0" id="UL2-7y-tZV">
+                            <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                        </label>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="PomodoroFinishedCategory" offsetNotificationContent="NO" id="7uG-qs-95A" userLabel="PomodoroFinishedCategory">
+                        <color key="sashColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </notificationCategory>
+                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <edgeInsets key="margins" left="1" right="1" top="0.0" bottom="20"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="UL2-7y-tZV" id="rSy-PG-Ehm"/>
+                        <segue destination="3sX-EN-EeI" kind="relationship" relationship="dynamicNotificationInterface" id="hfg-ra-k0G"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="392" y="307"/>
+        </scene>
+        <!--Watch Notification Controller-->
+        <scene sceneID="lVT-1s-FpL">
+            <objects>
+                <controller id="3sX-EN-EeI" customClass="KTWatchNotificationController">
+                    <items>
+                        <group width="1" alignment="left" id="pwj-qd-HGA" userLabel="Content">
+                            <items>
+                                <label alignment="center" text="Label" numberOfLines="0" id="dRC-8v-VBg">
+                                    <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                </label>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" layout="vertical" id="bPl-eP-Xzf" userLabel="TaskInfo">
+                            <items>
+                                <label alignment="left" text="Label" textAlignment="left" numberOfLines="2" id="M10-nt-sZ8" userLabel="taskNameLabel">
+                                    <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
+                                </label>
+                                <group width="1" alignment="left" id="UP6-U5-Rro">
+                                    <items>
+                                        <label width="0.5" alignment="right" text="2" textAlignment="left" id="p9V-xr-MWC">
+                                            <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
+                                        </label>
+                                        <label width="0.5" alignment="center" text="Remaining :" textAlignment="left" id="K2N-07-BV5" userLabel="remainingPomodorosLabel">
+                                            <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
+                                        </label>
+                                    </items>
+                                </group>
+                            </items>
+                            <edgeInsets key="margins" left="10" right="0.0" top="10" bottom="0.0"/>
+                        </group>
+                    </items>
+                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <edgeInsets key="margins" left="1" right="1" top="0.0" bottom="10"/>
+                    <connections>
+                        <outlet property="alertLabel" destination="dRC-8v-VBg" id="IlW-pD-9DZ"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="692" y="307"/>
+        </scene>
     </scenes>
     <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -1,0 +1,14 @@
+{
+    "aps": {
+        "alert":"Pomodoro #1 has finished. Time for a break!",
+        "title":"Task #1",
+        "category":"PomodoroFinishedCategory"
+    },
+    "WatchKit Simulator Actions" : [
+        {
+            "title" : "Don't need one",
+            "identifier" : "PomodoroFinishedNotification"
+        }
+    ],
+    "taskID":"task1"
+}
