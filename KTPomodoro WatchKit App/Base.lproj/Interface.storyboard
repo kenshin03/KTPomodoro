@@ -69,30 +69,30 @@
                             <items>
                                 <group width="1" alignment="left" id="Nym-Td-WTS" userLabel="Planned Pomo">
                                     <items>
-                                        <label width="0.5" alignment="left" text="Planned :" textAlignment="left" id="qDM-fv-Dg2">
+                                        <label width="0.5" alignment="left" text="Planned :" textAlignment="right" id="qDM-fv-Dg2">
                                             <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="8"/>
                                         </label>
-                                        <label width="0.5" alignment="right" text="1" textAlignment="right" id="yY0-Uo-yOC" userLabel="plannedPomoLabel">
+                                        <label width="0.5" alignment="right" text="1" textAlignment="left" id="yY0-Uo-yOC" userLabel="plannedPomoLabel">
                                             <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
                                         </label>
                                     </items>
                                 </group>
                                 <group width="1" alignment="left" id="NV3-eG-EPG" userLabel="Actual Pomo">
                                     <items>
-                                        <label width="0.5" alignment="left" text="Actual :" textAlignment="left" id="DaR-p2-Zgw" userLabel="Actual :">
+                                        <label width="0.5" alignment="left" text="Actual :" textAlignment="right" id="DaR-p2-Zgw" userLabel="Actual :">
                                             <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="8"/>
                                         </label>
-                                        <label width="0.5" alignment="right" text="1" textAlignment="right" id="Qk7-R3-hig" userLabel="actualPomoLabel">
+                                        <label width="0.5" alignment="right" text="1" textAlignment="left" id="Qk7-R3-hig" userLabel="actualPomoLabel">
                                             <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
                                         </label>
                                     </items>
                                 </group>
                                 <group width="1" alignment="left" id="ZAh-Fk-emA" userLabel="Interruptions">
                                     <items>
-                                        <label width="0.5" alignment="left" text="Interrupts :" textAlignment="left" id="pIx-aS-ig1" userLabel="Interruptions">
+                                        <label width="0.5" alignment="left" text="Interrupts :" textAlignment="right" id="pIx-aS-ig1" userLabel="Interruptions">
                                             <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="8"/>
                                         </label>
-                                        <label width="0.5" alignment="right" text="1" textAlignment="right" id="S64-Ly-S5S" userLabel="interruptionsLabel">
+                                        <label width="0.5" alignment="right" text="1" textAlignment="left" id="S64-Ly-S5S" userLabel="interruptionsLabel">
                                             <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
                                         </label>
                                     </items>

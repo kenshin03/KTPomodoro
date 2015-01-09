@@ -27,22 +27,26 @@
 
 - (void)seedData
 {
-    // Create Managed Object
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"KTPomodoroTask" inManagedObjectContext:self.managedObjectContext];
+    if (![[self allTasks] count]) {
 
-    KTPomodoroTask *newTask1 = (KTPomodoroTask*)[[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:self.managedObjectContext];
-    newTask1.name = @"Task 1";
-    newTask1.desc = @"Task desc";
-    newTask1.status = @(KTPomodoroTaskStatusStopped);
-    newTask1.expected_pomo = @(1);
-    newTask1.actual_pomo = @(0);
+        // Create Managed Object
+        NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"KTPomodoroTask" inManagedObjectContext:self.managedObjectContext];
 
-    KTPomodoroTask *newTask2 = (KTPomodoroTask*)[[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:self.managedObjectContext];
-    newTask2.name = @"Task 2";
-    newTask2.desc = @"Task desc";
-    newTask2.status = @(KTPomodoroTaskStatusStopped);
-    newTask2.expected_pomo = @(1);
-    newTask2.actual_pomo = @(0);
+        KTPomodoroTask *newTask1 = (KTPomodoroTask*)[[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:self.managedObjectContext];
+        newTask1.name = @"Task 1";
+        newTask1.desc = @"Task desc";
+        newTask1.status = @(KTPomodoroTaskStatusStopped);
+        newTask1.expected_pomo = @(1);
+        newTask1.actual_pomo = @(0);
+
+        KTPomodoroTask *newTask2 = (KTPomodoroTask*)[[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:self.managedObjectContext];
+        newTask2.name = @"Task 2";
+        newTask2.desc = @"Task desc";
+        newTask2.status = @(KTPomodoroTaskStatusStopped);
+        newTask2.expected_pomo = @(1);
+        newTask2.actual_pomo = @(0);
+
+    }
 }
 
 - (NSArray*)allTasks

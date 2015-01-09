@@ -44,7 +44,9 @@
     [self.interruptionsLabel setText:[self.task.interruptions stringValue]];
 
     [self addMenuItemWithItemIcon:WKMenuItemIconPlay title:@"Start" action:@selector(startTask:)];
-    [self addMenuItemWithItemIcon:WKMenuItemIconShare title:@"Open App" action:@selector(openApp:)];
+    [self addMenuItemWithItemIcon:WKMenuItemIconTrash title:@"Delete" action:@selector(deleteTask:)];
+
+//    [self addMenuItemWithItemIcon:WKMenuItemIconShare title:@"Open App" action:@selector(openApp:)];
 
 }
 
@@ -58,13 +60,13 @@
 - (void)didDeactivate {
     // This method is called when watch view controller is no longer visible
     [super didDeactivate];
-//    [[KTCoreDataStack sharedInstance] saveContext];
+    [[KTCoreDataStack sharedInstance] saveContext];
 
 }
 
 #pragma mark - Private
 
-- (IBAction)interruptTask:(id)sender
+- (void)interruptTask:(id)sender
 {
     [self stopTask:sender];
 
@@ -73,7 +75,6 @@
     self.task.interruptions = @(++interruptions);
 
     [self.interruptionsLabel setText:[NSString stringWithFormat:@"%li", (long)interruptions]];
-    self.task.desc = @"interrupted!";
 }
 
 - (void)startTask:(id)sender
@@ -86,7 +87,6 @@
     [self clearAllMenuItems];
     [self addMenuItemWithItemIcon:WKMenuItemIconBlock title:@"Interrupt" action:@selector(interruptTask:)];
     [self addMenuItemWithItemIcon:WKMenuItemIconPause title:@"Stop" action:@selector(stopTask:)];
-
 }
 
 - (void)stopTask:(id)sender
@@ -94,9 +94,18 @@
     [[KTActiveTimer sharedInstance] invalidate];
     [self clearAllMenuItems];
     [self addMenuItemWithItemIcon:WKMenuItemIconPlay title:@"Start" action:@selector(startTask:)];
+    [self addMenuItemWithItemIcon:WKMenuItemIconTrash title:@"Delete" action:@selector(deleteTask:)];
     [self.timeLabel setText:@"00:00"];
 }
 
+- (void)deleteTask:(id)sender
+{
+    [self.timeLabel setText:@"00:00"];
+    [[KTActiveTimer sharedInstance] invalidate];
+    [[[KTCoreDataStack sharedInstance] managedObjectContext] deleteObject:self.task];
+    [[KTCoreDataStack sharedInstance] saveContext];
+    [self popController];
+}
 
 - (void)openApp:(id)sender
 {
