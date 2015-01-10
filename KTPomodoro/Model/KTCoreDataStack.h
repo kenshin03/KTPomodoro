@@ -20,6 +20,8 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
+- (KTPomodoroTask*)createNewTask:(NSString*)taskName taskDesc:(NSString*)description pomodoros:(NSUInteger)pomodoros;
+
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 

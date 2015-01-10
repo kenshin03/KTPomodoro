@@ -18,5 +18,6 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * status;
 @property (nonatomic, retain) NSNumber * interruptions;
+@property (nonatomic, retain) NSDate * created_time;
 
 @end

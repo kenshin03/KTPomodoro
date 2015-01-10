@@ -38,6 +38,8 @@
 		8EF55C6F1A54EC48002962DF /* KTPomodoroTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF55C6E1A54EC48002962DF /* KTPomodoroTableViewCell.m */; };
 		8EF5AF2A1A6063E500A40CE8 /* KTWatchTaskCompletedNotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF5AF291A6063E500A40CE8 /* KTWatchTaskCompletedNotificationController.m */; };
 		8EF5AF2D1A60652D00A40CE8 /* KTWatchTaskCompletedNotificationStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EF5AF2B1A60652D00A40CE8 /* KTWatchTaskCompletedNotificationStoryboard.storyboard */; };
+		8EF5AF301A60916700A40CE8 /* KTWatchAddTaskRowInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF5AF2F1A60916700A40CE8 /* KTWatchAddTaskRowInterfaceController.m */; };
+		8EF5AF331A60955E00A40CE8 /* KTWatchInterfaceAddTaskInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF5AF321A60955E00A40CE8 /* KTWatchInterfaceAddTaskInterfaceController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +129,10 @@
 		8EF5AF281A6063E500A40CE8 /* KTWatchTaskCompletedNotificationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTWatchTaskCompletedNotificationController.h; sourceTree = "<group>"; };
 		8EF5AF291A6063E500A40CE8 /* KTWatchTaskCompletedNotificationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTWatchTaskCompletedNotificationController.m; sourceTree = "<group>"; };
 		8EF5AF2C1A60652D00A40CE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/KTWatchTaskCompletedNotificationStoryboard.storyboard; sourceTree = "<group>"; };
+		8EF5AF2E1A60916700A40CE8 /* KTWatchAddTaskRowInterfaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTWatchAddTaskRowInterfaceController.h; sourceTree = "<group>"; };
+		8EF5AF2F1A60916700A40CE8 /* KTWatchAddTaskRowInterfaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTWatchAddTaskRowInterfaceController.m; sourceTree = "<group>"; };
+		8EF5AF311A60955E00A40CE8 /* KTWatchInterfaceAddTaskInterfaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTWatchInterfaceAddTaskInterfaceController.h; sourceTree = "<group>"; };
+		8EF5AF321A60955E00A40CE8 /* KTWatchInterfaceAddTaskInterfaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTWatchInterfaceAddTaskInterfaceController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +179,10 @@
 				8E0F77711A55E09D0008C4ED /* KTWatchTasksListInterfaceController.m */,
 				8E0F776D1A55E0770008C4ED /* KTWatchTasksRowInterfaceController.h */,
 				8E0F776E1A55E0770008C4ED /* KTWatchTasksRowInterfaceController.m */,
+				8EF5AF2E1A60916700A40CE8 /* KTWatchAddTaskRowInterfaceController.h */,
+				8EF5AF2F1A60916700A40CE8 /* KTWatchAddTaskRowInterfaceController.m */,
+				8EF5AF311A60955E00A40CE8 /* KTWatchInterfaceAddTaskInterfaceController.h */,
+				8EF5AF321A60955E00A40CE8 /* KTWatchInterfaceAddTaskInterfaceController.m */,
 				8E64C1681A5F608800A4D526 /* KTWatchPomodoroCompletedNotificationController.h */,
 				8E64C1691A5F608800A4D526 /* KTWatchPomodoroCompletedNotificationController.m */,
 				8EF5AF281A6063E500A40CE8 /* KTWatchTaskCompletedNotificationController.h */,
@@ -492,11 +502,13 @@
 				8E0F77721A55E09D0008C4ED /* KTWatchTasksListInterfaceController.m in Sources */,
 				8E64C16A1A5F608800A4D526 /* KTWatchPomodoroCompletedNotificationController.m in Sources */,
 				8E0F77631A55D0FC0008C4ED /* KTCoreDataStack.m in Sources */,
+				8EF5AF331A60955E00A40CE8 /* KTWatchInterfaceAddTaskInterfaceController.m in Sources */,
 				8E64C1071A5F4B2700A4D526 /* KTPomodoroTaskConstants.m in Sources */,
 				8EF5AF2A1A6063E500A40CE8 /* KTWatchTaskCompletedNotificationController.m in Sources */,
 				8E0F776F1A55E0770008C4ED /* KTWatchTasksRowInterfaceController.m in Sources */,
 				8E0F77671A55D0FC0008C4ED /* KTActiveTimer.m in Sources */,
 				8E0F77441A55D0CF0008C4ED /* KTWatchInterfaceController.m in Sources */,
+				8EF5AF301A60916700A40CE8 /* KTWatchAddTaskRowInterfaceController.m in Sources */,
 				8E0F77471A55D0CF0008C4ED /* KTWatchGlanceController.m in Sources */,
 				8E2668021A5AF05800C36D0C /* KTPomodoroTask.m in Sources */,
 			);

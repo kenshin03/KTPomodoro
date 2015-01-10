@@ -11,11 +11,12 @@
 #import "KTPomodoroTask.h"
 #import "KTPomodoroTaskConstants.h"
 #import "KTWatchTasksRowInterfaceController.h"
+#import "KTWatchAddTaskRowInterfaceController.h"
 
 @interface KTWatchTasksListInterfaceController()
 
 @property (weak, nonatomic) IBOutlet WKInterfaceTable *table;
-
+@property (nonatomic) NSArray *allTasks;
 
 @end
 
@@ -25,7 +26,6 @@
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
     
-    // Configure interface objects here.
 }
 
 - (void)willActivate {
@@ -33,14 +33,12 @@
     [super willActivate];
 
     [self setUpTable];
-
-
-
 }
 
 - (void)didDeactivate {
     // This method is called when watch view controller is no longer visible
     [super didDeactivate];
+
 }
 
 #pragma mark - willActivate helper method
@@ -48,26 +46,45 @@
 - (void)setUpTable
 {
     NSArray *tasks = [[KTCoreDataStack sharedInstance] allTasks];
-    [self.table setNumberOfRows:[tasks count] withRowType:@"KTWatchTasksRowInterfaceController"];
-    [tasks enumerateObjectsUsingBlock:^(KTPomodoroTask *task, NSUInteger idx, BOOL *stop) {
-        KTWatchTasksRowInterfaceController *row = (KTWatchTasksRowInterfaceController*)[self.table rowControllerAtIndex:idx];
-        [row.taskNameLabel setText:task.name];
-        [row.descLabel setText:task.desc];
-        if ([task.status integerValue] == KTPomodoroTaskStatusCompleted) {
-            [row.taskStatusLabel setText:@"✓"];
-        }else{
-            [row.taskStatusLabel setText:@""];
-        }
-    }];
 
+    // if tasks count changed, reload table
+    if ([tasks count] != [self.allTasks count]) {
+        self.allTasks = tasks;
+        [self clearTableRows];
+
+        [self.table insertRowsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [tasks count])] withRowType:@"KTWatchTasksRowInterfaceController"];
+        [tasks enumerateObjectsUsingBlock:^(KTPomodoroTask *task, NSUInteger idx, BOOL *stop) {
+            KTWatchTasksRowInterfaceController *row = (KTWatchTasksRowInterfaceController*)[self.table rowControllerAtIndex:idx];
+            [row.taskNameLabel setText:task.name];
+            [row.descLabel setText:task.desc];
+            if ([task.status integerValue] == KTPomodoroTaskStatusCompleted) {
+                [row.taskStatusLabel setText:@"✓"];
+            }else{
+                [row.taskStatusLabel setText:@""];
+            }
+        }];
+
+        // add "add task" row at end
+        [self.table insertRowsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange([tasks count], 1)] withRowType:@"KTWatchAddTaskRowInterfaceController"];
+
+    }
+}
+
+- (void)clearTableRows
+{
+    [self.table removeRowsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [self.table numberOfRows])]];
 }
 
 
 - (KTPomodoroTask*)contextForSegueWithIdentifier:(NSString *)segueIdentifier inTable:(WKInterfaceTable *)table rowIndex:(NSInteger)rowIndex
 {
-    NSArray *tasks = [[KTCoreDataStack sharedInstance] allTasks];
-    return tasks[rowIndex];
+    if ([segueIdentifier isEqualToString:@"taskDetailsSegue"]) {
+        return self.allTasks[rowIndex];
+    } else {
+        return nil;
+    }
 }
+
 
 
 @end

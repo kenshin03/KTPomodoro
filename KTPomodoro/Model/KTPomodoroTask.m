@@ -17,5 +17,6 @@
 @dynamic name;
 @dynamic status;
 @dynamic interruptions;
+@dynamic created_time;
 
 @end

@@ -25,6 +25,21 @@
 
 #pragma mark - Helpers
 
+- (KTPomodoroTask*)createNewTask:(NSString*)taskName taskDesc:(NSString*)description pomodoros:(NSUInteger)pomodoros
+{
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"KTPomodoroTask" inManagedObjectContext:self.managedObjectContext];
+
+    KTPomodoroTask *newTask1 = (KTPomodoroTask*)[[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:self.managedObjectContext];
+    newTask1.name = taskName;
+    newTask1.desc = description;
+    newTask1.status = @(KTPomodoroTaskStatusStopped);
+    newTask1.expected_pomo = @(pomodoros);
+    newTask1.actual_pomo = @(0);
+    newTask1.created_time = [NSDate new];
+
+    return newTask1;
+}
+
 - (void)seedData
 {
     if (![[self allTasks] count]) {
@@ -38,6 +53,7 @@
         newTask1.status = @(KTPomodoroTaskStatusStopped);
         newTask1.expected_pomo = @(1);
         newTask1.actual_pomo = @(0);
+        newTask1.created_time = [NSDate new];
 
         KTPomodoroTask *newTask2 = (KTPomodoroTask*)[[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:self.managedObjectContext];
         newTask2.name = @"Task 2";
@@ -45,6 +61,7 @@
         newTask2.status = @(KTPomodoroTaskStatusStopped);
         newTask2.expected_pomo = @(1);
         newTask2.actual_pomo = @(0);
+        newTask2.created_time = [NSDate new];
 
     }
 }
@@ -52,6 +69,10 @@
 - (NSArray*)allTasks
 {
     NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:@"KTPomodoroTask"];
+
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"created_time" ascending:NO];
+    request.sortDescriptors = @[sortDescriptor];
+
     NSArray* objects = [self.managedObjectContext executeFetchRequest:request error:NULL];
     return objects;
 }
