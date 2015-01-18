@@ -55,11 +55,17 @@
         [self.table insertRowsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [tasks count])] withRowType:@"KTWatchTasksRowInterfaceController"];
         [tasks enumerateObjectsUsingBlock:^(KTPomodoroTask *task, NSUInteger idx, BOOL *stop) {
             KTWatchTasksRowInterfaceController *row = (KTWatchTasksRowInterfaceController*)[self.table rowControllerAtIndex:idx];
+            // beta4 bug
+            [row.taskNameLabel setText:@"  "];
             [row.taskNameLabel setText:task.name];
+
+            [row.descLabel setText:@"  "];
             [row.descLabel setText:task.desc];
             if ([task.status integerValue] == KTPomodoroTaskStatusCompleted) {
+                [row.taskStatusLabel setText:@"  "];
                 [row.taskStatusLabel setText:@"✓"];
             }else{
+                [row.taskStatusLabel setText:@"  "];
                 [row.taskStatusLabel setText:@""];
             }
         }];

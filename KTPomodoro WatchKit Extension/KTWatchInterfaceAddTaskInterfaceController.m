@@ -52,8 +52,8 @@
             self.taskName = results[0];
             [self.taskNameButton setTitle:self.taskName];
             // default color of WKInterfaceButton unknown
-            [self.taskNameButton setColor:[UIColor clearColor]];
-            [self.confirmButton setColor:[UIColor darkGrayColor]];
+            [self.taskNameButton setBackgroundColor:[UIColor clearColor]];
+            [self.confirmButton setBackgroundColor:[UIColor darkGrayColor]];
         }
     }];
 }
@@ -79,8 +79,8 @@
 - (IBAction)confirmButtonTapped {
 
     if (![self.taskName length]) {
-        [self.taskNameButton setColor:[UIColor redColor]];
-        [self.confirmButton setColor:[UIColor redColor]];
+        [self.taskNameButton setBackgroundColor:[UIColor redColor]];
+        [self.confirmButton setBackgroundColor:[UIColor redColor]];
         return;
     }
 

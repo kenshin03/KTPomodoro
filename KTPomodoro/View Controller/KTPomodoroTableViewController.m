@@ -10,15 +10,15 @@
 #import "KTCoreDataStack.h"
 #import "KTPomodoroTableViewCell.h"
 #import "KTPomodoroTask.h"
-#import "KTActiveTimer.h"
+#import "KTActiveActivityTimer.h"
 
 static NSString *kKTPomodoroTableRow = @"kKTPomodoroTableRow";
 static CGFloat kKTPomodoroTableRowHeight = 110.0f;
 
 
-@interface KTPomodoroTableViewController () <KTActiveTimerDelegate>
+@interface KTPomodoroTableViewController () <KTActiveActivityTimerDelegate>
 
-@property (nonatomic) KTActiveTimer *activeTaskTimer;
+@property (nonatomic) KTActiveActivityTimer *activeTaskTimer;
 @property (nonatomic) NSInteger activeTimerRowIndex;
 
 @end
@@ -32,7 +32,7 @@ static CGFloat kKTPomodoroTableRowHeight = 110.0f;
     self.title = @"Pomodoro Tasks";
 
     self.activeTimerRowIndex = -1;
-    self.activeTaskTimer = [KTActiveTimer sharedInstance];
+    self.activeTaskTimer = [KTActiveActivityTimer sharedInstance];
     self.activeTaskTimer.delegate = self;
 
 }
@@ -44,7 +44,7 @@ static CGFloat kKTPomodoroTableRowHeight = 110.0f;
 
 - (void)dealloc
 {
-    [self.activeTaskTimer invalidate];
+    [self.activeTaskTimer stopTimer];
 }
 
 #pragma mark - UITableViewController methods
@@ -90,7 +90,7 @@ static CGFloat kKTPomodoroTableRowHeight = 110.0f;
         [self.activeTaskTimer start];
 
     } else {
-        [self.activeTaskTimer invalidate];
+        [self.activeTaskTimer stopTimer];
 
         [self resetTaskTimeLabels];
         self.activeTimerRowIndex = -1;
@@ -111,7 +111,7 @@ static CGFloat kKTPomodoroTableRowHeight = 110.0f;
 - (void)updateTaskTimeLabelsPreStart
 {
     KTPomodoroTableViewCell *cell = (KTPomodoroTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:self.activeTimerRowIndex inSection:0]];
-    cell.timeLabel.text = [NSString stringWithFormat:@"%@:00", @([KTActiveTimer pomodoroDurationMinutes])];
+    cell.timeLabel.text = [NSString stringWithFormat:@"%@:00", @([KTActiveActivityTimer pomodoroDurationMinutes])];
 }
 
 #pragma mark - Timer delegate
@@ -128,7 +128,11 @@ static CGFloat kKTPomodoroTableRowHeight = 110.0f;
     NSString *remainingTimeString = [NSString stringWithFormat:@"%@:%@", displayMinutesString, displaySecsString];
     cell.timeLabel.text = remainingTimeString;
 
+}
 
+- (void)breakTimerDidFire:(KTPomodoroTask *)task totalElapsedSecs:(NSUInteger)secs minutes:(NSUInteger)min seconds:(NSUInteger)seconds
+{
+    
 }
 
 @end

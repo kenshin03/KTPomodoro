@@ -10,16 +10,19 @@
 #import "KTPomodoroTask.h"
 
 
-@protocol KTActiveTimerDelegate <NSObject>
+@protocol KTActiveActivityTimerDelegate <NSObject>
 
 - (void)timerDidFire:(KTPomodoroTask*)task totalElapsedSecs:(NSUInteger)secs minutes:(NSUInteger)min seconds:(NSUInteger)seconds;
 
+- (void)breakTimerDidFire:(KTPomodoroTask*)task totalElapsedSecs:(NSUInteger)secs minutes:(NSUInteger)min seconds:(NSUInteger)seconds;
+
+
 @end
 
-@interface KTActiveTimer : NSObject
+@interface KTActiveActivityTimer : NSObject
 
 @property (nonatomic) KTPomodoroTask *task;
-@property (nonatomic, weak) id<KTActiveTimerDelegate> delegate;
+@property (nonatomic, weak) id<KTActiveActivityTimerDelegate> delegate;
 
 + (instancetype)sharedInstance;
 
@@ -27,7 +30,7 @@
 
 - (BOOL)isValid;
 
-- (void)invalidate;
+- (void)stopTimer;
 
 - (void)start;
 
