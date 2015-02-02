@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8E0F77391A55CB2F0008C4ED /* KTActiveActivityTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E0F77381A55CB2F0008C4ED /* KTActiveActivityTimer.m */; };
 		8E0F77441A55D0CF0008C4ED /* KTWatchInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E0F77431A55D0CF0008C4ED /* KTWatchInterfaceController.m */; };
 		8E0F77471A55D0CF0008C4ED /* KTWatchGlanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E0F77461A55D0CF0008C4ED /* KTWatchGlanceController.m */; };
 		8E0F77491A55D0CF0008C4ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E0F77481A55D0CF0008C4ED /* Images.xcassets */; };
@@ -16,16 +15,21 @@
 		8E0F77571A55D0CF0008C4ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E0F77561A55D0CF0008C4ED /* Images.xcassets */; };
 		8E0F775A1A55D0CF0008C4ED /* KTPomodoro WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8E0F773E1A55D0CF0008C4ED /* KTPomodoro WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8E0F77631A55D0FC0008C4ED /* KTCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF55C5E1A54E29F002962DF /* KTCoreDataStack.m */; };
-		8E0F77671A55D0FC0008C4ED /* KTActiveActivityTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E0F77381A55CB2F0008C4ED /* KTActiveActivityTimer.m */; };
 		8E0F77691A55D7CB0008C4ED /* KTPomodoroModel.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 8EF55C681A54EA82002962DF /* KTPomodoroModel.xcdatamodeld */; };
 		8E0F776F1A55E0770008C4ED /* KTWatchTasksRowInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E0F776E1A55E0770008C4ED /* KTWatchTasksRowInterfaceController.m */; };
 		8E0F77721A55E09D0008C4ED /* KTWatchTasksListInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E0F77711A55E09D0008C4ED /* KTWatchTasksListInterfaceController.m */; };
-		8E2668011A5AF05800C36D0C /* KTPomodoroTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2668001A5AF05800C36D0C /* KTPomodoroTask.m */; };
-		8E2668021A5AF05800C36D0C /* KTPomodoroTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2668001A5AF05800C36D0C /* KTPomodoroTask.m */; };
+		8E2668011A5AF05800C36D0C /* KTPomodoroActivityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2668001A5AF05800C36D0C /* KTPomodoroActivityModel.m */; };
+		8E2668021A5AF05800C36D0C /* KTPomodoroActivityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2668001A5AF05800C36D0C /* KTPomodoroActivityModel.m */; };
 		8E64C1061A5F4B2700A4D526 /* KTPomodoroTaskConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C1051A5F4B2700A4D526 /* KTPomodoroTaskConstants.m */; };
 		8E64C1071A5F4B2700A4D526 /* KTPomodoroTaskConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C1051A5F4B2700A4D526 /* KTPomodoroTaskConstants.m */; };
 		8E64C1091A5F585100A4D526 /* PomodoroFinishedPayload.apns in Resources */ = {isa = PBXBuildFile; fileRef = 8E64C1081A5F585100A4D526 /* PomodoroFinishedPayload.apns */; };
 		8E64C16A1A5F608800A4D526 /* KTWatchPomodoroCompletedNotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C1691A5F608800A4D526 /* KTWatchPomodoroCompletedNotificationController.m */; };
+		8EC91CB41A71911B007D0CD6 /* KTSharedUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC91CB31A71911B007D0CD6 /* KTSharedUserDefaults.m */; };
+		8EC91CB51A7191E2007D0CD6 /* KTSharedUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC91CB31A71911B007D0CD6 /* KTSharedUserDefaults.m */; };
+		8EC91CB81A719268007D0CD6 /* KTActiveActivityState.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC91CB71A719268007D0CD6 /* KTActiveActivityState.m */; };
+		8EC91CB91A719268007D0CD6 /* KTActiveActivityState.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC91CB71A719268007D0CD6 /* KTActiveActivityState.m */; };
+		8EC91CBC1A719806007D0CD6 /* KTActivityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC91CBB1A719806007D0CD6 /* KTActivityManager.m */; };
+		8EC91CBD1A719806007D0CD6 /* KTActivityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC91CBB1A719806007D0CD6 /* KTActivityManager.m */; };
 		8EF55C2E1A54DFC2002962DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF55C2D1A54DFC2002962DF /* main.m */; };
 		8EF55C311A54DFC2002962DF /* KTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF55C301A54DFC2002962DF /* KTAppDelegate.m */; };
 		8EF55C3C1A54DFC2002962DF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EF55C3B1A54DFC2002962DF /* Images.xcassets */; };
@@ -81,8 +85,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8E0F77371A55CB2F0008C4ED /* KTActiveActivityTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KTActiveActivityTimer.h; path = Utils/KTActiveActivityTimer.h; sourceTree = "<group>"; };
-		8E0F77381A55CB2F0008C4ED /* KTActiveActivityTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KTActiveActivityTimer.m; path = Utils/KTActiveActivityTimer.m; sourceTree = "<group>"; };
 		8E0F773E1A55D0CF0008C4ED /* KTPomodoro WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "KTPomodoro WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E0F77411A55D0CF0008C4ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E0F77421A55D0CF0008C4ED /* KTWatchInterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KTWatchInterfaceController.h; sourceTree = "<group>"; };
@@ -99,13 +101,19 @@
 		8E0F776E1A55E0770008C4ED /* KTWatchTasksRowInterfaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTWatchTasksRowInterfaceController.m; sourceTree = "<group>"; };
 		8E0F77701A55E09D0008C4ED /* KTWatchTasksListInterfaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTWatchTasksListInterfaceController.h; sourceTree = "<group>"; };
 		8E0F77711A55E09D0008C4ED /* KTWatchTasksListInterfaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTWatchTasksListInterfaceController.m; sourceTree = "<group>"; };
-		8E2667FF1A5AF05800C36D0C /* KTPomodoroTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KTPomodoroTask.h; path = Model/KTPomodoroTask.h; sourceTree = "<group>"; };
-		8E2668001A5AF05800C36D0C /* KTPomodoroTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KTPomodoroTask.m; path = Model/KTPomodoroTask.m; sourceTree = "<group>"; };
+		8E2667FF1A5AF05800C36D0C /* KTPomodoroActivityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KTPomodoroActivityModel.h; path = Model/KTPomodoroActivityModel.h; sourceTree = "<group>"; };
+		8E2668001A5AF05800C36D0C /* KTPomodoroActivityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KTPomodoroActivityModel.m; path = Model/KTPomodoroActivityModel.m; sourceTree = "<group>"; };
 		8E64C1041A5F4B2700A4D526 /* KTPomodoroTaskConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KTPomodoroTaskConstants.h; path = Model/KTPomodoroTaskConstants.h; sourceTree = "<group>"; };
 		8E64C1051A5F4B2700A4D526 /* KTPomodoroTaskConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KTPomodoroTaskConstants.m; path = Model/KTPomodoroTaskConstants.m; sourceTree = "<group>"; };
 		8E64C1081A5F585100A4D526 /* PomodoroFinishedPayload.apns */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PomodoroFinishedPayload.apns; sourceTree = "<group>"; };
 		8E64C1681A5F608800A4D526 /* KTWatchPomodoroCompletedNotificationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTWatchPomodoroCompletedNotificationController.h; sourceTree = "<group>"; };
 		8E64C1691A5F608800A4D526 /* KTWatchPomodoroCompletedNotificationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTWatchPomodoroCompletedNotificationController.m; sourceTree = "<group>"; };
+		8EC91CB21A71911B007D0CD6 /* KTSharedUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KTSharedUserDefaults.h; path = Utils/KTSharedUserDefaults.h; sourceTree = "<group>"; };
+		8EC91CB31A71911B007D0CD6 /* KTSharedUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KTSharedUserDefaults.m; path = Utils/KTSharedUserDefaults.m; sourceTree = "<group>"; };
+		8EC91CB61A719268007D0CD6 /* KTActiveActivityState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KTActiveActivityState.h; path = Model/KTActiveActivityState.h; sourceTree = "<group>"; };
+		8EC91CB71A719268007D0CD6 /* KTActiveActivityState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KTActiveActivityState.m; path = Model/KTActiveActivityState.m; sourceTree = "<group>"; };
+		8EC91CBA1A719806007D0CD6 /* KTActivityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KTActivityManager.h; path = Utils/KTActivityManager.h; sourceTree = "<group>"; };
+		8EC91CBB1A719806007D0CD6 /* KTActivityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KTActivityManager.m; path = Utils/KTActivityManager.m; sourceTree = "<group>"; };
 		8EF55C281A54DFC2002962DF /* KTPomodoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KTPomodoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EF55C2C1A54DFC2002962DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8EF55C2D1A54DFC2002962DF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -163,8 +171,10 @@
 		8E0F77361A55CB0C0008C4ED /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				8E0F77371A55CB2F0008C4ED /* KTActiveActivityTimer.h */,
-				8E0F77381A55CB2F0008C4ED /* KTActiveActivityTimer.m */,
+				8EC91CB21A71911B007D0CD6 /* KTSharedUserDefaults.h */,
+				8EC91CB31A71911B007D0CD6 /* KTSharedUserDefaults.m */,
+				8EC91CBA1A719806007D0CD6 /* KTActivityManager.h */,
+				8EC91CBB1A719806007D0CD6 /* KTActivityManager.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -312,8 +322,10 @@
 		8EF55C591A54E192002962DF /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8E2667FF1A5AF05800C36D0C /* KTPomodoroTask.h */,
-				8E2668001A5AF05800C36D0C /* KTPomodoroTask.m */,
+				8EC91CB61A719268007D0CD6 /* KTActiveActivityState.h */,
+				8EC91CB71A719268007D0CD6 /* KTActiveActivityState.m */,
+				8E2667FF1A5AF05800C36D0C /* KTPomodoroActivityModel.h */,
+				8E2668001A5AF05800C36D0C /* KTPomodoroActivityModel.m */,
 				8EF55C5D1A54E29F002962DF /* KTCoreDataStack.h */,
 				8EF55C5E1A54E29F002962DF /* KTCoreDataStack.m */,
 				8E64C1041A5F4B2700A4D526 /* KTPomodoroTaskConstants.h */,
@@ -500,17 +512,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E0F77721A55E09D0008C4ED /* KTWatchTasksListInterfaceController.m in Sources */,
+				8EC91CB51A7191E2007D0CD6 /* KTSharedUserDefaults.m in Sources */,
 				8E64C16A1A5F608800A4D526 /* KTWatchPomodoroCompletedNotificationController.m in Sources */,
+				8EC91CBD1A719806007D0CD6 /* KTActivityManager.m in Sources */,
 				8E0F77631A55D0FC0008C4ED /* KTCoreDataStack.m in Sources */,
 				8EF5AF331A60955E00A40CE8 /* KTWatchInterfaceAddTaskInterfaceController.m in Sources */,
+				8EC91CB91A719268007D0CD6 /* KTActiveActivityState.m in Sources */,
 				8E64C1071A5F4B2700A4D526 /* KTPomodoroTaskConstants.m in Sources */,
 				8EF5AF2A1A6063E500A40CE8 /* KTWatchTaskCompletedNotificationController.m in Sources */,
 				8E0F776F1A55E0770008C4ED /* KTWatchTasksRowInterfaceController.m in Sources */,
-				8E0F77671A55D0FC0008C4ED /* KTActiveActivityTimer.m in Sources */,
 				8E0F77441A55D0CF0008C4ED /* KTWatchInterfaceController.m in Sources */,
 				8EF5AF301A60916700A40CE8 /* KTWatchAddTaskRowInterfaceController.m in Sources */,
 				8E0F77471A55D0CF0008C4ED /* KTWatchGlanceController.m in Sources */,
-				8E2668021A5AF05800C36D0C /* KTPomodoroTask.m in Sources */,
+				8E2668021A5AF05800C36D0C /* KTPomodoroActivityModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,13 +532,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EC91CB41A71911B007D0CD6 /* KTSharedUserDefaults.m in Sources */,
 				8EF55C311A54DFC2002962DF /* KTAppDelegate.m in Sources */,
 				8EF55C651A54E4AD002962DF /* KTPomodoroTableViewController.m in Sources */,
 				8EF55C2E1A54DFC2002962DF /* main.m in Sources */,
 				8EF55C5F1A54E29F002962DF /* KTCoreDataStack.m in Sources */,
-				8E2668011A5AF05800C36D0C /* KTPomodoroTask.m in Sources */,
+				8E2668011A5AF05800C36D0C /* KTPomodoroActivityModel.m in Sources */,
 				8EF55C6F1A54EC48002962DF /* KTPomodoroTableViewCell.m in Sources */,
-				8E0F77391A55CB2F0008C4ED /* KTActiveActivityTimer.m in Sources */,
+				8EC91CB81A719268007D0CD6 /* KTActiveActivityState.m in Sources */,
+				8EC91CBC1A719806007D0CD6 /* KTActivityManager.m in Sources */,
 				8E64C1061A5F4B2700A4D526 /* KTPomodoroTaskConstants.m in Sources */,
 				8EF55C6A1A54EA82002962DF /* KTPomodoroModel.xcdatamodeld in Sources */,
 			);

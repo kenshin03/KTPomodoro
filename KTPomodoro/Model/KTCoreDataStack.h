@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "KTPomodoroTask.h"
+#import "KTPomodoroActivityModel.h"
 
 @interface KTCoreDataStack : NSObject
 
@@ -20,7 +20,7 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
-- (KTPomodoroTask*)createNewTask:(NSString*)taskName taskDesc:(NSString*)description pomodoros:(NSUInteger)pomodoros;
+- (KTPomodoroActivityModel*)createNewTask:(NSString*)taskName taskDesc:(NSString*)description pomodoros:(NSUInteger)pomodoros;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

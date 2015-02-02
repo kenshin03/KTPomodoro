@@ -7,14 +7,14 @@
 //
 
 #import "KTWatchInterfaceController.h"
-#import "KTActiveActivityTimer.h"
 #import "KTCoreDataStack.h"
-#import "KTPomodoroTask.h"
+#import "KTPomodoroActivityModel.h"
 #import "KTPomodoroTaskConstants.h"
+#import "KTActivityManager.h"
 
-@interface KTWatchInterfaceController()<KTActiveActivityTimerDelegate>
+@interface KTWatchInterfaceController()<KTActivityManagerDelegate>
 
-@property (nonatomic) KTPomodoroTask *task;
+@property (nonatomic) KTPomodoroActivityModel *activity;
 @property (weak, nonatomic) IBOutlet WKInterfaceLabel *taskNameLabel;
 @property (weak, nonatomic) IBOutlet WKInterfaceLabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet WKInterfaceLabel *plannedPomoLabel;
@@ -34,14 +34,14 @@
 
     if (!context) {
     }
-    KTPomodoroTask *task = (KTPomodoroTask*)context;
-    self.task = task;
+    KTPomodoroActivityModel *activity = (KTPomodoroActivityModel*)context;
+    self.activity = activity;
 
-    [self.taskNameLabel setText:task.name];
-    [self.descriptionLabel setText:task.desc];
-    [self.plannedPomoLabel setText:[task.expected_pomo stringValue]];
-    [self.actualPomoLabel setText:[task.actual_pomo stringValue]];
-    [self.interruptionsLabel setText:[self.task.interruptions stringValue]];
+    [self.taskNameLabel setText:activity.name];
+    [self.descriptionLabel setText:activity.desc];
+    [self.plannedPomoLabel setText:[activity.expected_pomo stringValue]];
+    [self.actualPomoLabel setText:[activity.actual_pomo stringValue]];
+    [self.interruptionsLabel setText:[activity.interruptions stringValue]];
 
     [self addMenuItemWithItemIcon:WKMenuItemIconPlay title:@"Start" action:@selector(startTask:)];
     [self addMenuItemWithItemIcon:WKMenuItemIconTrash title:@"Delete" action:@selector(deleteTask:)];
@@ -71,18 +71,24 @@
     [self stopTask:sender];
 
     // increment interrupt
-    NSInteger interruptions = [self.task.interruptions integerValue];
-    self.task.interruptions = @(++interruptions);
+    NSInteger interruptions = [self.activity.interruptions integerValue];
+    self.activity.interruptions = @(++interruptions);
 
     [self.interruptionsLabel setText:[NSString stringWithFormat:@"%li", (long)interruptions]];
 }
 
 - (void)startTask:(id)sender
 {
-    [KTActiveActivityTimer sharedInstance].task = self.task;
-    [KTActiveActivityTimer sharedInstance].delegate = self;
-    [[KTActiveActivityTimer sharedInstance] start];
-    [self.timeLabel setText:[NSString stringWithFormat:@"%@:00", @([KTActiveActivityTimer pomodoroDurationMinutes])]];
+//    [KTActiveActivityTimer sharedInstance].activity = self.activity;
+//    [KTActiveActivityTimer sharedInstance].delegate = self;
+
+//
+    KTActivityManager *activityManager = [KTActivityManager sharedInstance];
+    activityManager.delegate = self;
+    [activityManager startActivity:self.activity];
+
+
+    [self.timeLabel setText:[NSString stringWithFormat:@"%@:00", @([KTActivityManager pomodoroDurationMinutes])]];
 
     [self clearAllMenuItems];
     [self addMenuItemWithItemIcon:WKMenuItemIconBlock title:@"Interrupt" action:@selector(interruptTask:)];
@@ -91,7 +97,7 @@
 
 - (void)stopTask:(id)sender
 {
-    [[KTActiveActivityTimer sharedInstance] stopTimer];
+    [[KTActivityManager sharedInstance] stopActivity];
     [self taskCompleted];
 }
 
@@ -107,8 +113,8 @@
 - (void)deleteTask:(id)sender
 {
     [self.timeLabel setText:@"00:00"];
-    [[KTActiveActivityTimer sharedInstance] stopTimer];
-    [[[KTCoreDataStack sharedInstance] managedObjectContext] deleteObject:self.task];
+    [[KTActivityManager sharedInstance] stopActivity];
+    [[[KTCoreDataStack sharedInstance] managedObjectContext] deleteObject:self.activity];
     [[KTCoreDataStack sharedInstance] saveContext];
     [self popController];
 }
@@ -126,10 +132,45 @@
     }];
 }
 
+#pragma mark - KTActivityManagerDelegate methods
+
+- (void)activityManager:(KTActivityManager *)manager activityPausedForBreak:(NSUInteger)elapsedTime
+{
+
+}
+
+- (void)activityManager:(KTActivityManager *)manager activityDidUpdate:(KTPomodoroActivityModel *)activity
+{
+    NSString *displayMinutesString = [self formatTimeIntToTwoDigitsString:activity.current_pomo_elapsed_time_minutes_int];
+
+    NSString *displaySecsString = [self formatTimeIntToTwoDigitsString:activity.current_pomo_elapsed_time_seconds_int];
+
+    NSString *remainingTimeString = [NSString stringWithFormat:@"%@:%@", displayMinutesString, displaySecsString];
+
+//    [self.taskNameLabel setText:[activity.actual_pomo stringValue]];
+
+    [self.timeLabel setText:remainingTimeString];
+    [self.actualPomoLabel setText:[activity.actual_pomo stringValue]];
+
+    if ([activity.status integerValue] == KTPomodoroTaskStatusCompleted) {
+        [self.taskNameLabel setText:@"Yeah done!"];
+        [self taskCompleted];
+    }
+
+}
+
+#pragma mark - activityManager:activityDidUpdate: helper method
+
+- (NSString*)formatTimeIntToTwoDigitsString:(NSUInteger)time
+{
+    NSString *displayString = (time>9)?[@(time) stringValue]:[NSString stringWithFormat:@"0%@", @(time)];
+    return displayString;
+}
+
 
 #pragma mark - KTActiveTimerDelegate
-
-- (void)timerDidFire:(KTPomodoroTask*)task totalElapsedSecs:(NSUInteger)secs minutes:(NSUInteger)displayMinutes seconds:(NSUInteger)displaySecs
+/*
+- (void)timerDidFire:(KTPomodoroActivityModel*)task totalElapsedSecs:(NSUInteger)secs minutes:(NSUInteger)displayMinutes seconds:(NSUInteger)displaySecs
 {
     NSString *displayMinutesString = (displayMinutes>9)?[@(displayMinutes) stringValue ]:[NSString stringWithFormat:@"0%@", @(displayMinutes)];
     NSString *displaySecsString = (displaySecs>9)?[@(displaySecs) stringValue ]:[NSString stringWithFormat:@"0%@", @(displaySecs)];
@@ -144,7 +185,7 @@
     } else {
         [self.timeLabel setTextColor:[UIColor redColor]];
     }
-    [self.taskNameLabel setText:[self.task.actual_pomo stringValue]];
+    [self.taskNameLabel setText:[self.activity.actual_pomo stringValue]];
 
     [self.timeLabel setText:remainingTimeString];
     [self.actualPomoLabel setText:[task.actual_pomo stringValue]];
@@ -155,7 +196,7 @@
     }
 }
 
-- (void)breakTimerDidFire:(KTPomodoroTask *)task totalElapsedSecs:(NSUInteger)secs minutes:(NSUInteger)displayMinutes seconds:(NSUInteger)displaySecs
+- (void)breakTimerDidFire:(KTPomodoroActivityModel *)task totalElapsedSecs:(NSUInteger)secs minutes:(NSUInteger)displayMinutes seconds:(NSUInteger)displaySecs
 {
     NSString *displayMinutesString = (displayMinutes>9)?[@(displayMinutes) stringValue ]:[NSString stringWithFormat:@"0%@", @(displayMinutes)];
     NSString *displaySecsString = (displaySecs>9)?[@(displaySecs) stringValue ]:[NSString stringWithFormat:@"0%@", @(displaySecs)];
@@ -167,7 +208,7 @@
     [self.timeLabel setText:remainingTimeString];
     [self.taskNameLabel setText:@"Break"];
 }
-
+*/
 @end
 
 

@@ -9,16 +9,15 @@
 #import "KTPomodoroTableViewController.h"
 #import "KTCoreDataStack.h"
 #import "KTPomodoroTableViewCell.h"
-#import "KTPomodoroTask.h"
-#import "KTActiveActivityTimer.h"
+#import "KTPomodoroActivityModel.h"
 
 static NSString *kKTPomodoroTableRow = @"kKTPomodoroTableRow";
 static CGFloat kKTPomodoroTableRowHeight = 110.0f;
 
 
-@interface KTPomodoroTableViewController () <KTActiveActivityTimerDelegate>
+@interface KTPomodoroTableViewController ()
 
-@property (nonatomic) KTActiveActivityTimer *activeTaskTimer;
+//@property (nonatomic) KTActiveActivityTimer *activeTaskTimer;
 @property (nonatomic) NSInteger activeTimerRowIndex;
 
 @end
@@ -32,8 +31,8 @@ static CGFloat kKTPomodoroTableRowHeight = 110.0f;
     self.title = @"Pomodoro Tasks";
 
     self.activeTimerRowIndex = -1;
-    self.activeTaskTimer = [KTActiveActivityTimer sharedInstance];
-    self.activeTaskTimer.delegate = self;
+//    self.activeTaskTimer = [KTActiveActivityTimer sharedInstance];
+//    self.activeTaskTimer.delegate = self;
 
 }
 
@@ -44,7 +43,7 @@ static CGFloat kKTPomodoroTableRowHeight = 110.0f;
 
 - (void)dealloc
 {
-    [self.activeTaskTimer stopTimer];
+//    [self.activeTaskTimer stopTimer];
 }
 
 #pragma mark - UITableViewController methods
@@ -59,7 +58,7 @@ static CGFloat kKTPomodoroTableRowHeight = 110.0f;
         cell = [[NSBundle mainBundle] loadNibNamed:@"KTPomodoroTableViewCell" owner:nil options:nil][0];
     }
 
-    KTPomodoroTask *task = [KTCoreDataStack sharedInstance].allTasks[indexPath.row];
+    KTPomodoroActivityModel *task = [KTCoreDataStack sharedInstance].allTasks[indexPath.row];
     cell.taskNameLabel.text = task.name;
     cell.descLabel.text = task.desc;
     cell.statusLabel.text = [task.status stringValue];
@@ -83,6 +82,7 @@ static CGFloat kKTPomodoroTableRowHeight = 110.0f;
 {
     KTPomodoroTableViewCell *cell = (KTPomodoroTableViewCell*)[self.tableView cellForRowAtIndexPath:indexPath];
     [cell setSelected:NO animated:YES];
+    /*
 
     if (![self.activeTaskTimer isValid]) {
         self.activeTimerRowIndex = indexPath.row;
@@ -95,6 +95,7 @@ static CGFloat kKTPomodoroTableRowHeight = 110.0f;
         [self resetTaskTimeLabels];
         self.activeTimerRowIndex = -1;
     }
+     */
     [self.tableView reloadData];
 
 }
@@ -111,28 +112,8 @@ static CGFloat kKTPomodoroTableRowHeight = 110.0f;
 - (void)updateTaskTimeLabelsPreStart
 {
     KTPomodoroTableViewCell *cell = (KTPomodoroTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:self.activeTimerRowIndex inSection:0]];
-    cell.timeLabel.text = [NSString stringWithFormat:@"%@:00", @([KTActiveActivityTimer pomodoroDurationMinutes])];
+//    cell.timeLabel.text = [NSString stringWithFormat:@"%@:00", @([KTActiveActivityTimer pomodoroDurationMinutes])];
 }
 
 #pragma mark - Timer delegate
-
-- (void)timerDidFire:(KTPomodoroTask*)task totalElapsedSecs:(NSUInteger)secs minutes:(NSUInteger)displayMinutes seconds:(NSUInteger)displaySecs
-{
-
-    KTPomodoroTableViewCell *cell = (KTPomodoroTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:self.activeTimerRowIndex inSection:0]];
-
-    // update label
-    NSString *displayMinutesString = (displayMinutes>9)?[@(displayMinutes) stringValue ]:[NSString stringWithFormat:@"0%@", @(displayMinutes)];
-    NSString *displaySecsString = (displaySecs>9)?[@(displaySecs) stringValue ]:[NSString stringWithFormat:@"0%@", @(displaySecs)];
-
-    NSString *remainingTimeString = [NSString stringWithFormat:@"%@:%@", displayMinutesString, displaySecsString];
-    cell.timeLabel.text = remainingTimeString;
-
-}
-
-- (void)breakTimerDidFire:(KTPomodoroTask *)task totalElapsedSecs:(NSUInteger)secs minutes:(NSUInteger)min seconds:(NSUInteger)seconds
-{
-    
-}
-
 @end

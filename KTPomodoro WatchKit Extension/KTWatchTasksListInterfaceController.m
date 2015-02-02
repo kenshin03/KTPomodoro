@@ -8,7 +8,7 @@
 
 #import "KTWatchTasksListInterfaceController.h"
 #import "KTCoreDataStack.h"
-#import "KTPomodoroTask.h"
+#import "KTPomodoroActivityModel.h"
 #import "KTPomodoroTaskConstants.h"
 #import "KTWatchTasksRowInterfaceController.h"
 #import "KTWatchAddTaskRowInterfaceController.h"
@@ -53,7 +53,7 @@
         [self clearTableRows];
 
         [self.table insertRowsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [tasks count])] withRowType:@"KTWatchTasksRowInterfaceController"];
-        [tasks enumerateObjectsUsingBlock:^(KTPomodoroTask *task, NSUInteger idx, BOOL *stop) {
+        [tasks enumerateObjectsUsingBlock:^(KTPomodoroActivityModel *task, NSUInteger idx, BOOL *stop) {
             KTWatchTasksRowInterfaceController *row = (KTWatchTasksRowInterfaceController*)[self.table rowControllerAtIndex:idx];
             // beta4 bug
             [row.taskNameLabel setText:@"  "];
@@ -82,7 +82,7 @@
 }
 
 
-- (KTPomodoroTask*)contextForSegueWithIdentifier:(NSString *)segueIdentifier inTable:(WKInterfaceTable *)table rowIndex:(NSInteger)rowIndex
+- (KTPomodoroActivityModel*)contextForSegueWithIdentifier:(NSString *)segueIdentifier inTable:(WKInterfaceTable *)table rowIndex:(NSInteger)rowIndex
 {
     if ([segueIdentifier isEqualToString:@"taskDetailsSegue"]) {
         return self.allTasks[rowIndex];
