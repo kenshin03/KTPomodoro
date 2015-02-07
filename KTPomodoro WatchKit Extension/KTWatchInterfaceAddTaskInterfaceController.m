@@ -46,7 +46,7 @@
 
 - (IBAction)enterTaskNameButtonTapped {
 
-    [self presentTextInputControllerWithSuggestions:@[@"Secret Project", @"Exercise", @"Read", @"Work"] allowedInputMode:WKTextInputModeAllowAnimatedEmoji completion:^(NSArray *results) {
+    [self presentTextInputControllerWithSuggestions:@[@"Watch Cat videos", @"Exercise", @"Read", @"Work"] allowedInputMode:WKTextInputModeAllowAnimatedEmoji completion:^(NSArray *results) {
         NSLog(@"enterTaskNameButtonTapped results: %@", results);
         if ([results count]) {
             self.taskName = results[0];

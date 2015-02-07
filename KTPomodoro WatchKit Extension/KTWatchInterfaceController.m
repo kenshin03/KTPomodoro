@@ -16,12 +16,13 @@
 
 @property (nonatomic) KTPomodoroActivityModel *activity;
 @property (weak, nonatomic) IBOutlet WKInterfaceLabel *taskNameLabel;
-@property (weak, nonatomic) IBOutlet WKInterfaceLabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet WKInterfaceLabel *plannedPomoLabel;
-@property (weak, nonatomic) IBOutlet WKInterfaceLabel *actualPomoLabel;
-@property (weak, nonatomic) IBOutlet WKInterfaceLabel *interruptionsLabel;
-@property (weak, nonatomic) IBOutlet WKInterfaceLabel *timeLabel;
+@property (weak, nonatomic) IBOutlet WKInterfaceLabel *remainingPomoLabel;
 
+@property (weak, nonatomic) IBOutlet WKInterfaceLabel *timeLabel;
+@property (weak, nonatomic) IBOutlet WKInterfaceGroup *timerRingInterfaceGroup;
+
+@property (nonatomic) NSString *currentBackgroundImage;
 
 @end
 
@@ -36,12 +37,11 @@
     }
     KTPomodoroActivityModel *activity = (KTPomodoroActivityModel*)context;
     self.activity = activity;
+    self.currentBackgroundImage = @"";
 
     [self.taskNameLabel setText:activity.name];
-    [self.descriptionLabel setText:activity.desc];
     [self.plannedPomoLabel setText:[activity.expected_pomo stringValue]];
-    [self.actualPomoLabel setText:[activity.actual_pomo stringValue]];
-    [self.interruptionsLabel setText:[activity.interruptions stringValue]];
+    [self.remainingPomoLabel setText:[activity.expected_pomo stringValue]];
 
     [self addMenuItemWithItemIcon:WKMenuItemIconPlay title:@"Start" action:@selector(startTask:)];
     [self addMenuItemWithItemIcon:WKMenuItemIconTrash title:@"Delete" action:@selector(deleteTask:)];
@@ -74,7 +74,6 @@
     NSInteger interruptions = [self.activity.interruptions integerValue];
     self.activity.interruptions = @(++interruptions);
 
-    [self.interruptionsLabel setText:[NSString stringWithFormat:@"%li", (long)interruptions]];
 }
 
 - (void)startTask:(id)sender
@@ -141,6 +140,10 @@
 
 - (void)activityManager:(KTActivityManager *)manager activityDidUpdate:(KTPomodoroActivityModel *)activity
 {
+
+    [self updateTimerBackgroundImage:activity];
+
+
     NSString *displayMinutesString = [self formatTimeIntToTwoDigitsString:activity.current_pomo_elapsed_time_minutes_int];
 
     NSString *displaySecsString = [self formatTimeIntToTwoDigitsString:activity.current_pomo_elapsed_time_seconds_int];
@@ -150,7 +153,10 @@
 //    [self.taskNameLabel setText:[activity.actual_pomo stringValue]];
 
     [self.timeLabel setText:remainingTimeString];
-    [self.actualPomoLabel setText:[activity.actual_pomo stringValue]];
+
+    NSUInteger remainingPomo = [activity.expected_pomo integerValue] - [activity.actual_pomo integerValue];
+
+    [self.remainingPomoLabel setText:[@(remainingPomo) stringValue]];
 
     if ([activity.status integerValue] == KTPomodoroTaskStatusCompleted) {
         [self.taskNameLabel setText:@"Yeah done!"];
@@ -165,6 +171,18 @@
 {
     NSString *displayString = (time>9)?[@(time) stringValue]:[NSString stringWithFormat:@"0%@", @(time)];
     return displayString;
+}
+
+- (void)updateTimerBackgroundImage:(KTPomodoroActivityModel *)activity
+{
+    NSUInteger elapsedSecs = activity.current_pomo_elapsed_time_int;
+    NSUInteger elapsedSections = elapsedSecs/(([KTActivityManager pomodoroDurationMinutes]*60)/12);
+
+    NSString *backgroundImage = [NSString stringWithFormat:@"circles_background_%@.png", @(elapsedSections)];
+    if (![self.currentBackgroundImage isEqualToString:backgroundImage]) {
+        self.currentBackgroundImage = backgroundImage;
+        [self.timerRingInterfaceGroup setBackgroundImageNamed:backgroundImage];
+    }
 }
 
 

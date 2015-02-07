@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6724" systemVersion="14C99d" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gWg-9H-XPS">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6750" systemVersion="14D72i" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gWg-9H-XPS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3735"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6735"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3737"/>
     </dependencies>
     <scenes>
         <!--KTWatchTasksListInterfaceController-->
@@ -144,16 +144,20 @@
             <objects>
                 <controller identifier="KTWatchInterfaceController" id="AgC-eL-Hgc" customClass="KTWatchInterfaceController">
                     <items>
-                        <group width="1" alignment="left" layout="vertical" id="jNl-Rj-2IE" userLabel="Header">
+                        <group width="1" alignment="left" backgroundImage="circles_background" id="b4w-hM-59N" userLabel="TimerRing">
                             <items>
-                                <label alignment="center" text="00:00" id="BRB-KF-Acu" userLabel="timeLabel">
-                                    <fontDescription key="font" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="47"/>
+                                <label alignment="center" text="00:00" id="gcq-x6-gwP" userLabel="timeLabel">
+                                    <fontDescription key="font" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
                                 </label>
-                                <label alignment="left" text="Task Name" numberOfLines="2" id="e3Z-Ff-gdu">
-                                    <fontDescription key="font" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
-                                </label>
-                                <label alignment="left" text="Description" numberOfLines="3" id="Ugc-Kp-CM6">
-                                    <fontDescription key="font" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                            </items>
+                            <edgeInsets key="margins" left="0.0" right="0.0" top="50" bottom="50"/>
+                        </group>
+                        <group width="1" height="10" alignment="left" id="iQP-0I-ArJ" userLabel="Padding"/>
+                        <group width="1" alignment="left" layout="vertical" id="jNl-Rj-2IE" userLabel="Task Name">
+                            <items>
+                                <label alignment="center" text="Task Name" textAlignment="center" numberOfLines="2" id="e3Z-Ff-gdu">
+                                    <color key="textColor" red="0.98431372549019602" green="0.22352941176470589" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="font" type="system" weight="ultraLight" pointSize="25"/>
                                 </label>
                             </items>
                         </group>
@@ -162,31 +166,25 @@
                             <items>
                                 <group width="1" alignment="left" id="Nym-Td-WTS" userLabel="Planned Pomo">
                                     <items>
-                                        <label width="0.5" alignment="left" verticalAlignment="center" text="Planned :" textAlignment="right" id="qDM-fv-Dg2">
-                                            <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="8"/>
+                                        <label width="0.40000000000000002" alignment="left" verticalAlignment="center" text="3" textAlignment="right" id="yY0-Uo-yOC" userLabel="plannedPomoLabel">
+                                            <color key="textColor" red="0.98431372549999996" green="0.22352941179999999" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="font" type="system" weight="thin" pointSize="12"/>
                                         </label>
-                                        <label width="0.5" alignment="right" verticalAlignment="center" text="1" textAlignment="left" id="yY0-Uo-yOC" userLabel="plannedPomoLabel">
-                                            <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
-                                        </label>
-                                    </items>
-                                </group>
-                                <group width="1" alignment="left" id="NV3-eG-EPG" userLabel="Actual Pomo">
-                                    <items>
-                                        <label width="0.5" alignment="left" verticalAlignment="center" text="Actual :" textAlignment="right" id="DaR-p2-Zgw" userLabel="Actual :">
-                                            <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="8"/>
-                                        </label>
-                                        <label width="0.5" alignment="right" verticalAlignment="center" text="1" textAlignment="left" id="Qk7-R3-hig" userLabel="actualPomoLabel">
-                                            <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
+                                        <label width="0.59999999999999998" alignment="left" verticalAlignment="center" text="Planned" textAlignment="left" id="qDM-fv-Dg2">
+                                            <color key="textColor" red="0.98431372549999996" green="0.22352941179999999" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="font" type="system" weight="thin" pointSize="12"/>
                                         </label>
                                     </items>
                                 </group>
-                                <group width="1" alignment="left" id="ZAh-Fk-emA" userLabel="Interruptions">
+                                <group width="1" alignment="left" id="NV3-eG-EPG" userLabel="Remaining Pomo">
                                     <items>
-                                        <label width="0.5" alignment="left" verticalAlignment="center" text="Interrupts :" textAlignment="right" id="pIx-aS-ig1" userLabel="Interruptions">
-                                            <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="8"/>
+                                        <label width="0.29999999999999999" alignment="left" verticalAlignment="center" text="1" textAlignment="right" id="Qk7-R3-hig" userLabel="remainingPomoLabel">
+                                            <color key="textColor" red="0.98431372549999996" green="0.22352941179999999" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="font" type="system" weight="thin" pointSize="12"/>
                                         </label>
-                                        <label width="0.5" alignment="right" verticalAlignment="center" text="1" textAlignment="left" id="S64-Ly-S5S" userLabel="interruptionsLabel">
-                                            <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
+                                        <label width="0.69999999999999996" alignment="left" verticalAlignment="center" text="Remaining" textAlignment="left" id="DaR-p2-Zgw" userLabel="remaining:">
+                                            <color key="textColor" red="0.98431372549999996" green="0.22352941179999999" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="font" type="system" weight="thin" pointSize="12"/>
                                         </label>
                                     </items>
                                 </group>
@@ -197,12 +195,11 @@
                     <menu key="menu" id="haA-fW-ubq"/>
                     <edgeInsets key="margins" left="8" right="8" top="0.0" bottom="0.0"/>
                     <connections>
-                        <outlet property="actualPomoLabel" destination="Qk7-R3-hig" id="EKr-pK-GCB"/>
-                        <outlet property="descriptionLabel" destination="Ugc-Kp-CM6" id="2bW-H2-Itc"/>
-                        <outlet property="interruptionsLabel" destination="S64-Ly-S5S" id="TIa-mI-LFO"/>
                         <outlet property="plannedPomoLabel" destination="yY0-Uo-yOC" id="rgm-jQ-1l3"/>
+                        <outlet property="remainingPomoLabel" destination="Qk7-R3-hig" id="YZu-F6-s4M"/>
                         <outlet property="taskNameLabel" destination="e3Z-Ff-gdu" id="BJ4-Ge-Xos"/>
-                        <outlet property="timeLabel" destination="BRB-KF-Acu" id="Gc0-gg-jsz"/>
+                        <outlet property="timeLabel" destination="gcq-x6-gwP" id="2V3-fK-O8p"/>
+                        <outlet property="timerRingInterfaceGroup" destination="b4w-hM-59N" id="4wa-PJ-dVv"/>
                     </connections>
                 </controller>
             </objects>
@@ -227,10 +224,10 @@
                 <notificationController id="y9J-5g-3db">
                     <items>
                         <label width="0.90000000000000002" alignment="center" verticalAlignment="center" text="Alert Label" numberOfLines="0" id="UL2-7y-tZV">
-                            <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                            <fontDescription key="font" type="system" pointSize="16"/>
                         </label>
                     </items>
-                    <notificationCategory key="notificationCategory" identifier="PomodoroFinishedCategory" offsetNotificationContent="NO" id="7uG-qs-95A" userLabel="PomodoroFinishedCategory">
+                    <notificationCategory key="notificationCategory" identifier="PomodoroFinishedCategory" id="7uG-qs-95A" userLabel="PomodoroFinishedCategory">
                         <color key="sashColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </notificationCategory>
                     <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -251,22 +248,22 @@
                         <group width="1" alignment="left" id="pwj-qd-HGA" userLabel="Content">
                             <items>
                                 <label width="0.90000000000000002" alignment="center" text="Label" numberOfLines="0" id="dRC-8v-VBg">
-                                    <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                    <fontDescription key="font" type="system" pointSize="16"/>
                                 </label>
                             </items>
                         </group>
                         <group width="1" alignment="left" layout="vertical" id="bPl-eP-Xzf" userLabel="TaskInfo">
                             <items>
                                 <label alignment="left" text="Label" textAlignment="left" numberOfLines="2" id="M10-nt-sZ8" userLabel="taskNameLabel">
-                                    <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
+                                    <fontDescription key="font" type="system" pointSize="10"/>
                                 </label>
                                 <group width="1" alignment="left" id="UP6-U5-Rro">
                                     <items>
                                         <label width="0.5" alignment="right" text="2" textAlignment="left" id="p9V-xr-MWC">
-                                            <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
+                                            <fontDescription key="font" type="system" pointSize="10"/>
                                         </label>
                                         <label width="0.5" alignment="center" text="Remaining :" textAlignment="left" id="K2N-07-BV5" userLabel="remainingPomodorosLabel">
-                                            <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
+                                            <fontDescription key="font" type="system" pointSize="10"/>
                                         </label>
                                     </items>
                                 </group>
