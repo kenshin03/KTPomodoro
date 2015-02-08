@@ -82,38 +82,8 @@ static CGFloat kKTPomodoroTableRowHeight = 110.0f;
 {
     KTPomodoroTableViewCell *cell = (KTPomodoroTableViewCell*)[self.tableView cellForRowAtIndexPath:indexPath];
     [cell setSelected:NO animated:YES];
-    /*
-
-    if (![self.activeTaskTimer isValid]) {
-        self.activeTimerRowIndex = indexPath.row;
-        [self updateTaskTimeLabelsPreStart];
-        [self.activeTaskTimer start];
-
-    } else {
-        [self.activeTaskTimer stopTimer];
-
-        [self resetTaskTimeLabels];
-        self.activeTimerRowIndex = -1;
-    }
-     */
     [self.tableView reloadData];
 
 }
 
-#pragma mark - didSelectRowAtIndexPath helper methods
-
-- (void)resetTaskTimeLabels
-{
-    KTPomodoroTableViewCell *cell = (KTPomodoroTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:self.activeTimerRowIndex inSection:0]];
-    cell.timeLabel.text = @"00:00";
-
-}
-
-- (void)updateTaskTimeLabelsPreStart
-{
-    KTPomodoroTableViewCell *cell = (KTPomodoroTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:self.activeTimerRowIndex inSection:0]];
-//    cell.timeLabel.text = [NSString stringWithFormat:@"%@:00", @([KTActiveActivityTimer pomodoroDurationMinutes])];
-}
-
-#pragma mark - Timer delegate
 @end

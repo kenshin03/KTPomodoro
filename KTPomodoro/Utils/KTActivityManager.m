@@ -64,6 +64,7 @@ static NSUInteger kKTPomodoroBreakMinutes = 1;
     }
 
     self.activity = activity;
+    self.activity.current_pomo_elapsed_time = @(0);
     self.activity.status = @(KTPomodoroTaskStatusInProgress);
     self.currentPomo = 0;
     self.breakElapsed = 0;

@@ -22,7 +22,7 @@
 @property (weak, nonatomic) IBOutlet WKInterfaceLabel *timeLabel;
 @property (weak, nonatomic) IBOutlet WKInterfaceGroup *timerRingInterfaceGroup;
 
-@property (nonatomic) NSString *currentBackgroundImage;
+@property (nonatomic) NSString *currentBackgroundImageString;
 
 @end
 
@@ -37,7 +37,7 @@
     }
     KTPomodoroActivityModel *activity = (KTPomodoroActivityModel*)context;
     self.activity = activity;
-    self.currentBackgroundImage = @"";
+    self.currentBackgroundImageString = @"";
 
     [self.taskNameLabel setText:activity.name];
     [self.plannedPomoLabel setText:[activity.expected_pomo stringValue]];
@@ -178,10 +178,11 @@
     NSUInteger elapsedSecs = activity.current_pomo_elapsed_time_int;
     NSUInteger elapsedSections = elapsedSecs/(([KTActivityManager pomodoroDurationMinutes]*60)/12);
 
-    NSString *backgroundImage = [NSString stringWithFormat:@"circles_background_%@.png", @(elapsedSections)];
-    if (![self.currentBackgroundImage isEqualToString:backgroundImage]) {
-        self.currentBackgroundImage = backgroundImage;
-        [self.timerRingInterfaceGroup setBackgroundImageNamed:backgroundImage];
+    NSString *backgroundImageString = [NSString stringWithFormat:@"circles_%@", @(elapsedSections)];
+    NSLog(@"backgroundImageString: %@", backgroundImageString);
+    if (![self.currentBackgroundImageString isEqualToString:backgroundImageString]) {
+        self.currentBackgroundImageString = backgroundImageString;
+        [self.timerRingInterfaceGroup setBackgroundImageNamed:backgroundImageString];
     }
 }
 
