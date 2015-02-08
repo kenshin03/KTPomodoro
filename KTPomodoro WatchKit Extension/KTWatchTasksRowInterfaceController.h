@@ -12,7 +12,7 @@
 @interface KTWatchTasksRowInterfaceController : NSObject
 
 @property (weak, nonatomic) IBOutlet WKInterfaceLabel *taskNameLabel;
-@property (weak, nonatomic) IBOutlet WKInterfaceLabel *descLabel;
 @property (weak, nonatomic) IBOutlet WKInterfaceLabel *taskStatusLabel;
+@property (weak, nonatomic) IBOutlet WKInterfaceGroup *rowGroup;
 
 @end

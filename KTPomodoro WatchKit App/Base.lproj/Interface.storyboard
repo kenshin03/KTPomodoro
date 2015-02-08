@@ -10,29 +10,68 @@
             <objects>
                 <controller identifier="KTWatchTasksListInterfaceController" id="gWg-9H-XPS" userLabel="KTWatchTasksListInterfaceController" customClass="KTWatchTasksListInterfaceController">
                     <items>
-                        <group width="1" alignment="left" id="WNE-WM-3pv" userLabel="Header">
-                            <items>
-                                <label alignment="center" text="Tasks :" textAlignment="left" id="6tj-Xk-fvz" userLabel="Tasks :">
-                                    <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
-                                </label>
-                            </items>
-                        </group>
                         <group width="1" alignment="left" layout="vertical" id="4Dc-50-N78" userLabel="TasksGroup">
                             <items>
                                 <table alignment="left" id="2aX-XK-CWv" userLabel="TasksTable">
                                     <items>
                                         <tableRow identifier="KTWatchTasksRowInterfaceController" id="icP-SL-2l0" customClass="KTWatchTasksRowInterfaceController">
-                                            <group key="rootItem" width="1" alignment="left" id="2l1-Pm-jqv">
+                                            <group key="rootItem" width="1" height="0.0" alignment="left" backgroundImage="listview_background_red" id="2l1-Pm-jqv">
                                                 <items>
-                                                    <label alignment="left" verticalAlignment="center" text="Task Name" textAlignment="left" numberOfLines="2" id="gDw-9j-Hfy">
-                                                        <fontDescription key="font" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
-                                                    </label>
-                                                    <label width="10" alignment="right" verticalAlignment="bottom" text="1" id="AUK-BY-ftP" userLabel="statusLabel">
-                                                        <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                                    </label>
+                                                    <group width="1" alignment="left" verticalAlignment="center" layout="vertical" spacing="0.0" id="r3p-g0-MWM">
+                                                        <items>
+                                                            <label alignment="center" verticalAlignment="center" text="Task Name" textAlignment="center" numberOfLines="2" minimumScaleFactor="0.80000000000000004" id="gDw-9j-Hfy">
+                                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <fontDescription key="font" type="system" weight="ultraLight" pointSize="15"/>
+                                                                <variation key="device=watch42mm" text="Watch cat videos"/>
+                                                            </label>
+                                                            <group width="1" alignment="left" verticalAlignment="bottom" id="080-HZ-jj3">
+                                                                <items>
+                                                                    <label alignment="right" verticalAlignment="bottom" text="2 Remaining" id="AUK-BY-ftP" userLabel="statusLabel">
+                                                                        <fontDescription key="font" type="system" weight="ultraLight" pointSize="8"/>
+                                                                    </label>
+                                                                </items>
+                                                                <edgeInsets key="margins" left="0.0" right="10" top="0.0" bottom="0.0"/>
+                                                                <variation key="default">
+                                                                    <mask key="items">
+                                                                        <exclude reference="AUK-BY-ftP"/>
+                                                                    </mask>
+                                                                </variation>
+                                                                <variation key="device=watch42mm">
+                                                                    <mask key="items">
+                                                                        <include reference="AUK-BY-ftP"/>
+                                                                    </mask>
+                                                                </variation>
+                                                            </group>
+                                                        </items>
+                                                        <variation key="default">
+                                                            <mask key="items">
+                                                                <exclude reference="gDw-9j-Hfy"/>
+                                                                <exclude reference="080-HZ-jj3"/>
+                                                            </mask>
+                                                        </variation>
+                                                        <variation key="device=watch42mm">
+                                                            <mask key="items">
+                                                                <include reference="gDw-9j-Hfy"/>
+                                                                <include reference="080-HZ-jj3"/>
+                                                            </mask>
+                                                        </variation>
+                                                    </group>
                                                 </items>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <edgeInsets key="margins" left="0.0" right="0.0" top="4" bottom="4"/>
+                                                <variation key="default">
+                                                    <mask key="items">
+                                                        <exclude reference="r3p-g0-MWM"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="device=watch42mm">
+                                                    <mask key="items">
+                                                        <include reference="r3p-g0-MWM"/>
+                                                    </mask>
+                                                </variation>
                                             </group>
                                             <connections>
+                                                <outlet property="rowGroup" destination="2l1-Pm-jqv" id="APK-Zd-NFC"/>
                                                 <outlet property="taskNameLabel" destination="gDw-9j-Hfy" id="0Ft-pJ-raP"/>
                                                 <outlet property="taskStatusLabel" destination="AUK-BY-ftP" id="OaJ-Z6-3Sx"/>
                                                 <segue destination="AgC-eL-Hgc" kind="push" identifier="taskDetailsSegue" id="DCm-AL-j4e"/>
@@ -41,10 +80,12 @@
                                         <tableRow identifier="KTWatchAddTaskRowInterfaceController" id="m3u-0v-vwg" userLabel="KTWatchAddTaskRowInterfaceController" customClass="KTWatchAddTaskRowInterfaceController">
                                             <group key="rootItem" width="1" alignment="left" id="BtZ-6G-iZ1">
                                                 <items>
-                                                    <label alignment="center" verticalAlignment="center" text="+" textAlignment="left" id="E2y-pT-J7f" userLabel="addTaskLabel">
-                                                        <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                                    <label alignment="center" verticalAlignment="center" text="New Activity" textAlignment="left" id="E2y-pT-J7f" userLabel="addTaskLabel">
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="font" type="system" weight="ultraLight" pointSize="14"/>
                                                     </label>
                                                 </items>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </group>
                                             <connections>
                                                 <segue destination="eyg-0E-xle" kind="modal" identifier="addTaskSegue" id="6ih-bY-PoT"/>

@@ -53,22 +53,20 @@
         [self clearTableRows];
 
         [self.table insertRowsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [tasks count])] withRowType:@"KTWatchTasksRowInterfaceController"];
+        __block CGFloat cellAlpha = 1.0f;
         [tasks enumerateObjectsUsingBlock:^(KTPomodoroActivityModel *task, NSUInteger idx, BOOL *stop) {
             KTWatchTasksRowInterfaceController *row = (KTWatchTasksRowInterfaceController*)[self.table rowControllerAtIndex:idx];
-            // beta4 bug
-            [row.taskNameLabel setText:@"  "];
             [row.taskNameLabel setText:task.name];
-
-            [row.descLabel setText:@"  "];
-            [row.descLabel setText:task.desc];
-            if ([task.status integerValue] == KTPomodoroTaskStatusCompleted) {
-                [row.taskStatusLabel setText:@"  "];
-                [row.taskStatusLabel setText:@"✓"];
-            }else{
-                [row.taskStatusLabel setText:@"  "];
-                [row.taskStatusLabel setText:@""];
+            [row.rowGroup setCornerRadius:0.0f];
+            [row.rowGroup setAlpha:cellAlpha];
+            if (cellAlpha > 0.2f) {
+                cellAlpha -= 0.2;
+            }
+            if (idx > 0) {
+                [row.taskStatusLabel setHidden:YES];
             }
         }];
+
 
         // add "add task" row at end
         [self.table insertRowsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange([tasks count], 1)] withRowType:@"KTWatchAddTaskRowInterfaceController"];
@@ -91,6 +89,7 @@
     }
 }
 
+#pragma mark - helper
 
 
 @end
