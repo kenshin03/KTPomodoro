@@ -108,77 +108,61 @@
             <objects>
                 <controller id="eyg-0E-xle" userLabel="KTWatchInterfaceAddTaskController" customClass="KTWatchInterfaceAddTaskInterfaceController">
                     <items>
-                        <group width="1" alignment="left" id="cb4-Wv-94z" userLabel="Header Group">
-                            <items>
-                                <group width="107" alignment="left" id="NYm-6q-iJE" userLabel="pomos label group">
-                                    <items>
-                                        <label width="0.0" alignment="left" text="Add Task" id="MEI-s9-es2">
-                                            <fontDescription key="font" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
-                                        </label>
-                                    </items>
-                                    <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
-                                </group>
-                            </items>
-                            <edgeInsets key="margins" left="10" right="0.0" top="10" bottom="10"/>
-                        </group>
                         <group width="1" alignment="left" layout="vertical" id="NZk-QX-ZDb">
                             <items>
-                                <button width="1" alignment="left" title="Enter Task Name :" id="tGK-In-AN3">
-                                    <fontDescription key="font" name="HelveticaNeue-ThinItalic" family="Helvetica Neue" pointSize="12"/>
+                                <button width="1" alignment="left" title="Activity name" backgroundImage="listview_background_red" id="tGK-In-AN3" userLabel="Name Button">
+                                    <fontDescription key="font" type="system" weight="ultraLight" pointSize="15"/>
                                     <connections>
                                         <action selector="enterTaskNameButtonTapped" destination="eyg-0E-xle" id="7jz-B7-EEu"/>
                                     </connections>
                                 </button>
-                                <button width="1" alignment="left" title="Enter Description :" id="i0W-do-7fm">
-                                    <fontDescription key="font" name="HelveticaNeue-ThinItalic" family="Helvetica Neue" pointSize="12"/>
-                                    <connections>
-                                        <action selector="enterDescriptionButtonTapped" destination="eyg-0E-xle" id="Dvj-PE-5j2"/>
-                                    </connections>
-                                </button>
-                                <group width="0.80000000000000004" alignment="center" layout="vertical" id="IYN-hY-s4u" userLabel="Planned Pomo Group">
+                                <group width="1" alignment="center" id="IYN-hY-s4u" userLabel="Planned Pomo Group">
                                     <items>
-                                        <group width="107" alignment="left" id="IRR-1w-ucT" userLabel="pomos label group">
+                                        <group width="0.5" alignment="left" id="IRR-1w-ucT" userLabel="pomos label group">
                                             <items>
-                                                <label width="0.80000000000000004" alignment="left" text="Pomodoros :" textAlignment="left" id="kih-fr-HoJ">
-                                                    <fontDescription key="font" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                                <label width="0.30000000000000004" alignment="left" text="1" textAlignment="right" id="Mxh-EA-gLn" userLabel="pomosLabel">
+                                                    <color key="textColor" red="0.97647058819999999" green="0.23137254900000001" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="font" type="system" weight="ultraLight" pointSize="18"/>
                                                 </label>
-                                                <label width="0.20000000000000001" alignment="right" text="1" textAlignment="right" id="Mxh-EA-gLn" userLabel="pomosLabel">
-                                                    <fontDescription key="font" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                                <label width="0.79999999999999993" alignment="right" text="Pomo" textAlignment="left" id="kih-fr-HoJ">
+                                                    <color key="textColor" red="0.97647058819999999" green="0.23137254900000001" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="font" type="system" weight="ultraLight" pointSize="18"/>
                                                 </label>
                                             </items>
-                                            <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                                            <edgeInsets key="margins" left="0.0" right="0.0" top="10" bottom="10"/>
                                         </group>
-                                        <slider width="1" alignment="left" value="1" minimum="1" maximum="10" steps="9" id="BJd-zO-NFq" userLabel="pomosSlider">
+                                        <slider width="0.5" alignment="right" value="1" minimum="1" maximum="10" steps="10" id="BJd-zO-NFq" userLabel="pomosSlider">
+                                            <color key="color" red="0.97647058819999999" green="0.23137254900000001" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="pomodorosSliderValueChanged:" destination="eyg-0E-xle" id="kL4-te-oWk"/>
                                             </connections>
                                         </slider>
                                     </items>
-                                    <edgeInsets key="margins" left="0.0" right="0.0" top="10" bottom="0.0"/>
+                                    <edgeInsets key="margins" left="0.0" right="0.0" top="5" bottom="0.0"/>
                                 </group>
                                 <group width="1" alignment="left" id="Xse-wr-oew" userLabel="Button Group">
                                     <items>
-                                        <button width="1" alignment="left" title="Confirm" id="a1k-8V-U9O">
+                                        <button width="1" alignment="left" hidden="YES" title="Confirm" enabled="NO" id="a1k-8V-U9O">
                                             <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                             <connections>
                                                 <action selector="confirmButtonTapped" destination="eyg-0E-xle" id="nHa-M4-4TR"/>
                                             </connections>
                                         </button>
                                     </items>
-                                    <edgeInsets key="margins" left="0.0" right="0.0" top="10" bottom="10"/>
+                                    <edgeInsets key="margins" left="0.0" right="0.0" top="15" bottom="0.0"/>
                                 </group>
                             </items>
+                            <edgeInsets key="margins" left="0.0" right="0.0" top="10" bottom="0.0"/>
                         </group>
                     </items>
                     <connections>
                         <outlet property="confirmButton" destination="a1k-8V-U9O" id="Nxf-2F-JCg"/>
                         <outlet property="expectedPomodorosLabel" destination="Mxh-EA-gLn" id="owc-V7-GKL"/>
-                        <outlet property="taskDescriptionButton" destination="i0W-do-7fm" id="Jeb-xy-60U"/>
                         <outlet property="taskNameButton" destination="tGK-In-AN3" id="oCZ-m2-vUF"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="391" y="-259.25"/>
+            <point key="canvasLocation" x="390.5641025641026" y="-259.35897435897436"/>
         </scene>
         <!--KTWatchInterfaceController-->
         <scene sceneID="aou-V4-d1y">
@@ -271,7 +255,6 @@
                     <notificationCategory key="notificationCategory" identifier="PomodoroFinishedCategory" id="7uG-qs-95A" userLabel="PomodoroFinishedCategory">
                         <color key="sashColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </notificationCategory>
-                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <edgeInsets key="margins" left="1" right="1" top="0.0" bottom="20"/>
                     <connections>
                         <outlet property="notificationAlertLabel" destination="UL2-7y-tZV" id="rSy-PG-Ehm"/>

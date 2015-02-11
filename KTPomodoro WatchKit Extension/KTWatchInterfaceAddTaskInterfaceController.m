@@ -12,13 +12,11 @@
 @interface KTWatchInterfaceAddTaskInterfaceController()
 
 @property (nonatomic) NSString *taskName;
-@property (nonatomic) NSString *taskDescription;
 @property (nonatomic) NSInteger expectedPomodoros;
 @property (weak, nonatomic) IBOutlet WKInterfaceLabel *expectedPomodorosLabel;
 
 @property (weak, nonatomic) IBOutlet WKInterfaceButton *confirmButton;
 @property (weak, nonatomic) IBOutlet WKInterfaceButton *taskNameButton;
-@property (weak, nonatomic) IBOutlet WKInterfaceButton *taskDescriptionButton;
 
 @end
 
@@ -46,45 +44,32 @@
 
 - (IBAction)enterTaskNameButtonTapped {
 
-    [self presentTextInputControllerWithSuggestions:@[@"Watch Cat videos", @"Exercise", @"Read", @"Work"] allowedInputMode:WKTextInputModeAllowAnimatedEmoji completion:^(NSArray *results) {
+    [self presentTextInputControllerWithSuggestions:@[
+                                                      @"Watch Cat videos",
+                                                      @"Exercise",
+                                                      @"Do some writing",
+                                                      @"Read a book",
+                                                      @"Work"] allowedInputMode:WKTextInputModeAllowAnimatedEmoji completion:^(NSArray *results) {
         NSLog(@"enterTaskNameButtonTapped results: %@", results);
         if ([results count]) {
             self.taskName = results[0];
-            [self.taskNameButton setTitle:self.taskName];
-            // default color of WKInterfaceButton unknown
-            [self.taskNameButton setBackgroundColor:[UIColor clearColor]];
-            [self.confirmButton setBackgroundColor:[UIColor darkGrayColor]];
+            if (self.taskName.length) {
+                [self.taskNameButton setTitle:self.taskName];
+                [self.confirmButton setHidden:NO];
+            }
         }
     }];
-}
-
-
-- (IBAction)enterDescriptionButtonTapped {
-    [self presentTextInputControllerWithSuggestions:nil allowedInputMode:WKTextInputModeAllowAnimatedEmoji completion:^(NSArray *results) {
-        NSLog(@"enterDescriptionButtonTapped results: %@", results);
-        if ([results count]) {
-            self.taskDescription = results[0];
-            [self.taskDescriptionButton setTitle:self.taskDescription];
-        }
-    }];
-
 }
 
 - (IBAction)pomodorosSliderValueChanged:(float)value {
-    self.expectedPomodoros = (NSUInteger)value;
+    self.expectedPomodoros = (NSUInteger)floor(value);
     [self.expectedPomodorosLabel setText:[NSString stringWithFormat:@"%@", @(value)]];
 }
 
 
 - (IBAction)confirmButtonTapped {
 
-    if (![self.taskName length]) {
-        [self.taskNameButton setBackgroundColor:[UIColor redColor]];
-        [self.confirmButton setBackgroundColor:[UIColor redColor]];
-        return;
-    }
-
-    [[KTCoreDataStack sharedInstance] createNewTask:self.taskName taskDesc:self.taskDescription pomodoros:self.expectedPomodoros];
+    [[KTCoreDataStack sharedInstance] createNewTask:self.taskName taskDesc:@"" pomodoros:self.expectedPomodoros];
 
     [[KTCoreDataStack sharedInstance] saveContext];
 

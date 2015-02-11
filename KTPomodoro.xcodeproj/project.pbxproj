@@ -30,6 +30,7 @@
 		8EC91CB91A719268007D0CD6 /* KTActiveActivityState.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC91CB71A719268007D0CD6 /* KTActiveActivityState.m */; };
 		8EC91CBC1A719806007D0CD6 /* KTActivityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC91CBB1A719806007D0CD6 /* KTActivityManager.m */; };
 		8EC91CBD1A719806007D0CD6 /* KTActivityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC91CBB1A719806007D0CD6 /* KTActivityManager.m */; };
+		8EE78ABB1A8AE2E100F8A225 /* Settings-Watch.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8EE78ABA1A8AE2E100F8A225 /* Settings-Watch.bundle */; };
 		8EF55C2E1A54DFC2002962DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF55C2D1A54DFC2002962DF /* main.m */; };
 		8EF55C311A54DFC2002962DF /* KTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF55C301A54DFC2002962DF /* KTAppDelegate.m */; };
 		8EF55C3C1A54DFC2002962DF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EF55C3B1A54DFC2002962DF /* Images.xcassets */; };
@@ -114,6 +115,7 @@
 		8EC91CB71A719268007D0CD6 /* KTActiveActivityState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KTActiveActivityState.m; path = Model/KTActiveActivityState.m; sourceTree = "<group>"; };
 		8EC91CBA1A719806007D0CD6 /* KTActivityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KTActivityManager.h; path = Utils/KTActivityManager.h; sourceTree = "<group>"; };
 		8EC91CBB1A719806007D0CD6 /* KTActivityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KTActivityManager.m; path = Utils/KTActivityManager.m; sourceTree = "<group>"; };
+		8EE78ABA1A8AE2E100F8A225 /* Settings-Watch.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "Settings-Watch.bundle"; path = "Resources/Shared/Settings-Watch.bundle"; sourceTree = "<group>"; };
 		8EF55C281A54DFC2002962DF /* KTPomodoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KTPomodoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EF55C2C1A54DFC2002962DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8EF55C2D1A54DFC2002962DF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -234,6 +236,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		8EE78AB91A8AE2B900F8A225 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				8EE78ABA1A8AE2E100F8A225 /* Settings-Watch.bundle */,
+			);
+			name = Shared;
+			sourceTree = "<group>";
+		};
 		8EF55C1F1A54DFC1002962DF = {
 			isa = PBXGroup;
 			children = (
@@ -300,6 +310,7 @@
 		8EF55C541A54E006002962DF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8EE78AB91A8AE2B900F8A225 /* Shared */,
 				8EF55C3B1A54DFC2002962DF /* Images.xcassets */,
 				8EF55C3D1A54DFC2002962DF /* LaunchScreen.xib */,
 				8EF55C681A54EA82002962DF /* KTPomodoroModel.xcdatamodeld */,
@@ -493,6 +504,7 @@
 			files = (
 				8EF55C6C1A54EBC4002962DF /* KTPomodoroTableViewCell.xib in Resources */,
 				8EF55C3F1A54DFC2002962DF /* LaunchScreen.xib in Resources */,
+				8EE78ABB1A8AE2E100F8A225 /* Settings-Watch.bundle in Resources */,
 				8EF55C3C1A54DFC2002962DF /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
