@@ -12,11 +12,6 @@
 #import "KTPomodoroTaskConstants.h"
 #import "KTSharedUserDefaults.h"
 
-// should be 25
-static NSUInteger kKTPomodoroDurationMinutes = 1;
-// should be 5
-static NSUInteger kKTPomodoroBreakMinutes = 1;
-
 
 @interface KTActivityManager()
 
@@ -44,12 +39,12 @@ static NSUInteger kKTPomodoroBreakMinutes = 1;
 
 + (NSUInteger)pomodoroDurationMinutes
 {
-    return kKTPomodoroDurationMinutes;
+    return [KTSharedUserDefaults pomoDuration];
 }
 
 + (NSUInteger)breakDurationMinutes
 {
-    return kKTPomodoroBreakMinutes;
+    return [KTSharedUserDefaults breakDuration];
 }
 
 - (void)startActivity:(KTPomodoroActivityModel*)activity
@@ -101,6 +96,25 @@ static NSUInteger kKTPomodoroBreakMinutes = 1;
     // house keeping
     [self resetManagerInternalState];
 
+}
+
++ (NSUInteger)pomoRemainingMinutes:(NSUInteger)totalRemainingSecs
+{
+    NSInteger pomodoroSecs = [KTSharedUserDefaults pomoDuration]*60 - totalRemainingSecs;
+
+    NSUInteger displayMinutes = (NSUInteger)floor(pomodoroSecs/60.0f);
+
+    return displayMinutes;
+
+}
+
++ (NSUInteger)pomoRemainingSecsInCurrentMinute:(NSUInteger)totalRemainingSecs
+{
+    NSInteger pomodoroSecs = [KTSharedUserDefaults pomoDuration]*60 - totalRemainingSecs;
+
+    NSUInteger displaySecs = (NSUInteger)pomodoroSecs%60;
+    return displaySecs;
+    
 }
 
 #pragma mark - Private
@@ -178,7 +192,7 @@ static NSUInteger kKTPomodoroBreakMinutes = 1;
 
     [self.delegate activityManager:self activityDidUpdate:self.activity];
 
-    if (currentPomoElapsed == kKTPomodoroDurationMinutes*60) {
+    if (currentPomoElapsed == [KTActivityManager pomodoroDurationMinutes]*60) {
 
         // reached end of pomo, either:
         self.currentPomo++;
@@ -196,7 +210,7 @@ static NSUInteger kKTPomodoroBreakMinutes = 1;
 - (void)breakTimerFired:(id)sender
 {
     self.breakElapsed++;
-    if (self.breakElapsed < kKTPomodoroBreakMinutes*60) {
+    if (self.breakElapsed < [KTActivityManager breakDurationMinutes]*60) {
         // continue break
         [self.delegate activityManager:self activityPausedForBreak:self.breakElapsed];
     } else {
@@ -233,6 +247,10 @@ static NSUInteger kKTPomodoroBreakMinutes = 1;
 
     // save to disk
     [[KTCoreDataStack sharedInstance] saveContext];
+
+    // inform delegate
+    [self.delegate activityManager:self activityDidUpdate:self.activity];
+
 
     // house keeping
     [self resetManagerInternalState];
@@ -271,6 +289,11 @@ static NSUInteger kKTPomodoroBreakMinutes = 1;
     self.breakElapsed = 0;
 
 }
+
+
+
+
+
 
 
 

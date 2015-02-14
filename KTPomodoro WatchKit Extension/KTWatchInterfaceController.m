@@ -7,10 +7,11 @@
 //
 
 #import "KTWatchInterfaceController.h"
+#import "KTActivityManager.h"
 #import "KTCoreDataStack.h"
 #import "KTPomodoroActivityModel.h"
 #import "KTPomodoroTaskConstants.h"
-#import "KTActivityManager.h"
+#import "KTSharedUserDefaults.h"
 
 @interface KTWatchInterfaceController()<KTActivityManagerDelegate>
 
@@ -46,16 +47,8 @@
     [self addMenuItemWithItemIcon:WKMenuItemIconPlay title:@"Start" action:@selector(startTask:)];
     [self addMenuItemWithItemIcon:WKMenuItemIconTrash title:@"Delete" action:@selector(deleteTask:)];
 
-//    [self addMenuItemWithItemIcon:WKMenuItemIconShare title:@"Open App" action:@selector(openApp:)];
-
 }
 
-- (void)willActivate {
-    // This method is called when watch view controller is about to be visible to user
-    [super willActivate];
-
-
-}
 
 - (void)didDeactivate {
     // This method is called when watch view controller is no longer visible
@@ -65,6 +58,9 @@
 }
 
 #pragma mark - Private
+
+
+#pragma mark - Action Outlets
 
 - (void)interruptTask:(id)sender
 {
@@ -107,6 +103,10 @@
     [self addMenuItemWithItemIcon:WKMenuItemIconTrash title:@"Delete" action:@selector(deleteTask:)];
     [self.timeLabel setText:@"00:00"];
 
+    if ([self shouldAutoDeleteCompletedTasks]) {
+        [self deleteTask:nil];
+    }
+
 }
 
 - (void)deleteTask:(id)sender
@@ -131,6 +131,14 @@
     }];
 }
 
+#pragma mark - taskCompleted helper methods
+
+- (BOOL)shouldAutoDeleteCompletedTasks
+{
+    return [KTSharedUserDefaults shouldAutoDeleteCompletedActivites];
+}
+
+
 #pragma mark - KTActivityManagerDelegate methods
 
 - (void)activityManager:(KTActivityManager *)manager activityPausedForBreak:(NSUInteger)elapsedTime
@@ -144,13 +152,11 @@
     [self updateTimerBackgroundImage:activity];
 
 
-    NSString *displayMinutesString = [self formatTimeIntToTwoDigitsString:activity.current_pomo_elapsed_time_minutes_int];
+    NSString *displayMinutesString = [self formatTimeIntToTwoDigitsString:[KTActivityManager  pomoRemainingMinutes:activity.current_pomo_elapsed_time_int]];
 
-    NSString *displaySecsString = [self formatTimeIntToTwoDigitsString:activity.current_pomo_elapsed_time_seconds_int];
+    NSString *displaySecsString = [self formatTimeIntToTwoDigitsString:[KTActivityManager  pomoRemainingSecsInCurrentMinute:activity.current_pomo_elapsed_time_int]];
 
     NSString *remainingTimeString = [NSString stringWithFormat:@"%@:%@", displayMinutesString, displaySecsString];
-
-//    [self.taskNameLabel setText:[activity.actual_pomo stringValue]];
 
     [self.timeLabel setText:remainingTimeString];
 
@@ -187,47 +193,7 @@
 }
 
 
-#pragma mark - KTActiveTimerDelegate
-/*
-- (void)timerDidFire:(KTPomodoroActivityModel*)task totalElapsedSecs:(NSUInteger)secs minutes:(NSUInteger)displayMinutes seconds:(NSUInteger)displaySecs
-{
-    NSString *displayMinutesString = (displayMinutes>9)?[@(displayMinutes) stringValue ]:[NSString stringWithFormat:@"0%@", @(displayMinutes)];
-    NSString *displaySecsString = (displaySecs>9)?[@(displaySecs) stringValue ]:[NSString stringWithFormat:@"0%@", @(displaySecs)];
 
-    NSString *remainingTimeString = [NSString stringWithFormat:@"%@:%@", displayMinutesString, displaySecsString];
-
-//    [self.timeLabel setTextColor:[UIColor whiteColor]];
-
-    if (secs%2 == 0) {
-        [self.timeLabel setTextColor:[UIColor greenColor]];
-
-    } else {
-        [self.timeLabel setTextColor:[UIColor redColor]];
-    }
-    [self.taskNameLabel setText:[self.activity.actual_pomo stringValue]];
-
-    [self.timeLabel setText:remainingTimeString];
-    [self.actualPomoLabel setText:[task.actual_pomo stringValue]];
-
-    if ([task.status integerValue] == KTPomodoroTaskStatusCompleted) {
-        [self.taskNameLabel setText:@"Yeah done!"];
-        [self taskCompleted];
-    }
-}
-
-- (void)breakTimerDidFire:(KTPomodoroActivityModel *)task totalElapsedSecs:(NSUInteger)secs minutes:(NSUInteger)displayMinutes seconds:(NSUInteger)displaySecs
-{
-    NSString *displayMinutesString = (displayMinutes>9)?[@(displayMinutes) stringValue ]:[NSString stringWithFormat:@"0%@", @(displayMinutes)];
-    NSString *displaySecsString = (displaySecs>9)?[@(displaySecs) stringValue ]:[NSString stringWithFormat:@"0%@", @(displaySecs)];
-
-    NSString *remainingTimeString = [NSString stringWithFormat:@"%@:%@", displayMinutesString, displaySecsString];
-
-    [self.timeLabel setTextColor:[UIColor greenColor]];
-
-    [self.timeLabel setText:remainingTimeString];
-    [self.taskNameLabel setText:@"Break"];
-}
-*/
 @end
 
 

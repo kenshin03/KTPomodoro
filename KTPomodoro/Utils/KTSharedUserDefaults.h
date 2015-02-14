@@ -8,8 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface KTSharedUserDefaults : NSObject
 
 + (NSUserDefaults*)sharedUserDefaults;
+
++ (BOOL)shouldAutoDeleteCompletedActivites;
+
++ (NSUInteger)pomoDuration;
+
++ (NSUInteger)breakDuration;
+
 
 @end

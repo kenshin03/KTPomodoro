@@ -23,11 +23,17 @@
 
 + (NSUInteger)breakDurationMinutes;
 
++ (NSUInteger)pomoRemainingMinutes:(NSUInteger)totalRemainingSecs;
+
++ (NSUInteger)pomoRemainingSecsInCurrentMinute:(NSUInteger)totalRemainingSecs;
+
+
 - (void)startActivity:(KTPomodoroActivityModel*)activity;
 
 - (void)stopActivity;
 
 - (void)stopActivityOnInterruption;
+
 
 
 @end

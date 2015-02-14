@@ -8,10 +8,6 @@
 
 #import "KTPomodoroActivityModel.h"
 
-// should be 25
-static NSUInteger kKTPomodoroActivityModelDurationMinutes = 1;
-
-
 @implementation KTPomodoroActivityModel
 
 @dynamic activityID;
@@ -29,22 +25,4 @@ static NSUInteger kKTPomodoroActivityModelDurationMinutes = 1;
 {
     return [self.current_pomo_elapsed_time integerValue];
 }
-
-- (NSUInteger)current_pomo_elapsed_time_minutes_int
-{
-    NSInteger pomodoroSecs = kKTPomodoroActivityModelDurationMinutes*60 - [self current_pomo_elapsed_time_int];
-
-    NSUInteger displayMinutes = (NSUInteger)floor(pomodoroSecs/60.0f);
-
-    return displayMinutes;
-}
-
-- (NSUInteger)current_pomo_elapsed_time_seconds_int
-{
-    NSInteger pomodoroSecs = kKTPomodoroActivityModelDurationMinutes*60 - [self current_pomo_elapsed_time_int];
-
-    NSUInteger displaySecs = (NSUInteger)pomodoroSecs%60;
-    return displaySecs;
-}
-
 @end

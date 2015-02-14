@@ -172,12 +172,11 @@
                         <group width="1" alignment="left" backgroundImage="circles_background" id="b4w-hM-59N" userLabel="TimerRing">
                             <items>
                                 <label alignment="center" text="00:00" id="gcq-x6-gwP" userLabel="timeLabel">
-                                    <fontDescription key="font" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
+                                    <fontDescription key="font" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="34"/>
                                 </label>
                             </items>
                             <edgeInsets key="margins" left="0.0" right="0.0" top="50" bottom="50"/>
                         </group>
-                        <group width="1" height="10" alignment="left" id="iQP-0I-ArJ" userLabel="Padding"/>
                         <group width="1" alignment="left" layout="vertical" id="jNl-Rj-2IE" userLabel="Task Name">
                             <items>
                                 <label alignment="center" text="Task Name" textAlignment="center" numberOfLines="2" id="e3Z-Ff-gdu">

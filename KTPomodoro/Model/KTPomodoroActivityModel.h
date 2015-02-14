@@ -24,7 +24,5 @@
 @property (nonatomic, retain) NSNumber * current_pomo;
 @property (nonatomic, retain) NSNumber * current_pomo_elapsed_time;
 @property (nonatomic, readonly) NSUInteger current_pomo_elapsed_time_int;
-@property (nonatomic, readonly) NSUInteger current_pomo_elapsed_time_minutes_int;
-@property (nonatomic, readonly) NSUInteger current_pomo_elapsed_time_seconds_int;
 
 @end

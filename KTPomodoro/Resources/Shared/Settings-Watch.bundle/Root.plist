@@ -24,7 +24,7 @@
 			<key>Key</key>
 			<string>break_length</string>
 			<key>DefaultValue</key>
-			<string>1</string>
+			<string>5</string>
 			<key>KeyboardType</key>
 			<string>NumberPad</string>
 		</dict>
@@ -36,12 +36,12 @@
 			<key>Key</key>
 			<string>pomo_length</string>
 			<key>DefaultValue</key>
-			<string>1</string>
+			<string>25</string>
 			<key>KeyboardType</key>
 			<string>NumberPad</string>
 		</dict>
 	</array>
 	<key>ApplicationGroupContainerIdentifier</key>
-	<string>group.com.corgitoergosum.KTPomodoro.Settings</string>
+	<string>group.com.corgitoergosum.KTPomodoro</string>
 </dict>
 </plist>

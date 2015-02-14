@@ -20,6 +20,7 @@
 		8E0F77721A55E09D0008C4ED /* KTWatchTasksListInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E0F77711A55E09D0008C4ED /* KTWatchTasksListInterfaceController.m */; };
 		8E2668011A5AF05800C36D0C /* KTPomodoroActivityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2668001A5AF05800C36D0C /* KTPomodoroActivityModel.m */; };
 		8E2668021A5AF05800C36D0C /* KTPomodoroActivityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2668001A5AF05800C36D0C /* KTPomodoroActivityModel.m */; };
+		8E362A431A8FE6D4006DD649 /* Settings-Watch.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8EE78ABA1A8AE2E100F8A225 /* Settings-Watch.bundle */; };
 		8E64C1061A5F4B2700A4D526 /* KTPomodoroTaskConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C1051A5F4B2700A4D526 /* KTPomodoroTaskConstants.m */; };
 		8E64C1071A5F4B2700A4D526 /* KTPomodoroTaskConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E64C1051A5F4B2700A4D526 /* KTPomodoroTaskConstants.m */; };
 		8E64C1091A5F585100A4D526 /* PomodoroFinishedPayload.apns in Resources */ = {isa = PBXBuildFile; fileRef = 8E64C1081A5F585100A4D526 /* PomodoroFinishedPayload.apns */; };
@@ -482,6 +483,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E0F774D1A55D0CF0008C4ED /* KTPomodoro WatchKit App.app in Resources */,
+				8E362A431A8FE6D4006DD649 /* Settings-Watch.bundle in Resources */,
 				8E64C1091A5F585100A4D526 /* PomodoroFinishedPayload.apns in Resources */,
 				8E0F77691A55D7CB0008C4ED /* KTPomodoroModel.xcdatamodeld in Resources */,
 				8E0F77491A55D0CF0008C4ED /* Images.xcassets in Resources */,
