@@ -55,6 +55,7 @@
             self.taskName = results[0];
             if (self.taskName.length) {
                 [self.taskNameButton setTitle:self.taskName];
+                [self.confirmButton setEnabled:YES];
                 [self.confirmButton setHidden:NO];
             }
         }
@@ -63,7 +64,7 @@
 
 - (IBAction)pomodorosSliderValueChanged:(float)value {
     self.expectedPomodoros = (NSUInteger)floor(value);
-    [self.expectedPomodorosLabel setText:[NSString stringWithFormat:@"%@", @(value)]];
+    [self.expectedPomodorosLabel setText:[NSString stringWithFormat:@"%@", @(self.expectedPomodoros)]];
 }
 
 

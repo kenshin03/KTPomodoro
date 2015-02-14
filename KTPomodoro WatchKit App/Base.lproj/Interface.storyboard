@@ -120,13 +120,13 @@
                                     <items>
                                         <group width="0.5" alignment="left" id="IRR-1w-ucT" userLabel="pomos label group">
                                             <items>
-                                                <label width="0.30000000000000004" alignment="left" text="1" textAlignment="right" id="Mxh-EA-gLn" userLabel="pomosLabel">
+                                                <label width="0.40000000000000002" alignment="center" text="1" textAlignment="center" id="Mxh-EA-gLn" userLabel="pomosLabel">
                                                     <color key="textColor" red="0.97647058819999999" green="0.23137254900000001" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="font" type="system" weight="ultraLight" pointSize="18"/>
                                                 </label>
-                                                <label width="0.79999999999999993" alignment="right" text="Pomo" textAlignment="left" id="kih-fr-HoJ">
+                                                <label width="0.59999999999999998" alignment="right" text="Pomo" textAlignment="left" id="kih-fr-HoJ">
                                                     <color key="textColor" red="0.97647058819999999" green="0.23137254900000001" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="font" type="system" weight="ultraLight" pointSize="18"/>
+                                                    <fontDescription key="font" type="system" weight="ultraLight" pointSize="17"/>
                                                 </label>
                                             </items>
                                             <edgeInsets key="margins" left="0.0" right="0.0" top="10" bottom="10"/>
@@ -249,11 +249,13 @@
                 <notificationController id="y9J-5g-3db">
                     <items>
                         <label width="0.90000000000000002" alignment="center" verticalAlignment="center" text="Alert Label" numberOfLines="0" id="UL2-7y-tZV">
-                            <fontDescription key="font" type="system" pointSize="16"/>
+                            <color key="textColor" red="0.97647058819999999" green="0.23137254900000001" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="font" type="system" weight="ultraLight" pointSize="21"/>
                         </label>
                     </items>
                     <notificationCategory key="notificationCategory" identifier="PomodoroFinishedCategory" id="7uG-qs-95A" userLabel="PomodoroFinishedCategory">
-                        <color key="sashColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="0.97647058819999999" green="0.23137254900000001" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="sashColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </notificationCategory>
                     <edgeInsets key="margins" left="1" right="1" top="0.0" bottom="20"/>
                     <connections>
@@ -272,22 +274,22 @@
                         <group width="1" alignment="left" id="pwj-qd-HGA" userLabel="Content">
                             <items>
                                 <label width="0.90000000000000002" alignment="center" text="Label" numberOfLines="0" id="dRC-8v-VBg">
-                                    <fontDescription key="font" type="system" pointSize="16"/>
+                                    <color key="textColor" red="0.97647058819999999" green="0.23137254900000001" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="font" type="system" weight="ultraLight" pointSize="21"/>
                                 </label>
                             </items>
                         </group>
                         <group width="1" alignment="left" layout="vertical" id="bPl-eP-Xzf" userLabel="TaskInfo">
                             <items>
-                                <label alignment="left" text="Label" textAlignment="left" numberOfLines="2" id="M10-nt-sZ8" userLabel="taskNameLabel">
-                                    <fontDescription key="font" type="system" pointSize="10"/>
-                                </label>
                                 <group width="1" alignment="left" id="UP6-U5-Rro">
                                     <items>
                                         <label width="0.5" alignment="right" text="2" textAlignment="left" id="p9V-xr-MWC">
-                                            <fontDescription key="font" type="system" pointSize="10"/>
+                                            <color key="textColor" red="0.97647058819999999" green="0.23137254900000001" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="font" type="system" weight="thin" pointSize="12"/>
                                         </label>
                                         <label width="0.5" alignment="center" text="Remaining :" textAlignment="left" id="K2N-07-BV5" userLabel="remainingPomodorosLabel">
-                                            <fontDescription key="font" type="system" pointSize="10"/>
+                                            <color key="textColor" red="0.97647058819999999" green="0.23137254900000001" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="font" type="system" weight="thin" pointSize="12"/>
                                         </label>
                                     </items>
                                 </group>
@@ -295,17 +297,15 @@
                             <edgeInsets key="margins" left="10" right="0.0" top="10" bottom="0.0"/>
                         </group>
                     </items>
-                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <edgeInsets key="margins" left="1" right="1" top="0.0" bottom="10"/>
                     <connections>
                         <outlet property="alertLabel" destination="dRC-8v-VBg" id="IlW-pD-9DZ"/>
                         <outlet property="remainingPomodorosLabel" destination="p9V-xr-MWC" id="jFs-eA-KF3"/>
-                        <outlet property="taskNameLabel" destination="M10-nt-sZ8" id="e8j-EO-OJO"/>
                     </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="692" y="307"/>
         </scene>
     </scenes>
-    <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>
