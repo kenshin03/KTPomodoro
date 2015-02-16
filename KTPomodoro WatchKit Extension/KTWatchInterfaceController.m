@@ -47,17 +47,46 @@
     [self addMenuItemWithItemIcon:WKMenuItemIconPlay title:@"Start" action:@selector(startTask:)];
     [self addMenuItemWithItemIcon:WKMenuItemIconTrash title:@"Delete" action:@selector(deleteTask:)];
 
+    [self registerUserDefaultChanges];
+
 }
 
 
 - (void)didDeactivate {
     // This method is called when watch view controller is no longer visible
     [super didDeactivate];
+    [self unregisterUserDefaultChanges];
     [[KTCoreDataStack sharedInstance] saveContext];
 
 }
 
 #pragma mark - Private
+
+#pragma mark - awakeWithContext: helper methods
+
+- (void)registerUserDefaultChanges
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDefaultsUpdated) name:NSUserDefaultsDidChangeNotification object:nil];
+}
+
+#pragma mark - didDeactivate helper methods
+
+- (void)unregisterUserDefaultChanges
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSUserDefaultsDidChangeNotification object:nil];
+}
+
+#pragma mark - registerUserDefaultChanges helper methods
+
+- (void)userDefaultsUpdated
+{
+    BOOL shouldAutoComplete = [KTSharedUserDefaults shouldAutoDeleteCompletedActivites];
+    NSUInteger breakDuration = [KTSharedUserDefaults breakDuration];
+    NSUInteger pomoDuration = [KTSharedUserDefaults pomoDuration];
+    NSLog(@"shouldAutoComplete: %i", shouldAutoComplete);
+    NSLog(@"breakDuration: %@", @(breakDuration));
+    NSLog(@"pomoDuration: %@", @(pomoDuration));
+}
 
 
 #pragma mark - Action Outlets
@@ -93,15 +122,13 @@
 - (void)stopTask:(id)sender
 {
     [[KTActivityManager sharedInstance] stopActivity];
-    [self taskCompleted];
+    [self resetMenuItemsTimeLabel];
+    [self resetBackgroundImage];
 }
 
 - (void)taskCompleted
 {
-    [self clearAllMenuItems];
-    [self addMenuItemWithItemIcon:WKMenuItemIconPlay title:@"Start" action:@selector(startTask:)];
-    [self addMenuItemWithItemIcon:WKMenuItemIconTrash title:@"Delete" action:@selector(deleteTask:)];
-    [self.timeLabel setText:@"00:00"];
+    [self resetMenuItemsTimeLabel];
 
     if ([self shouldAutoDeleteCompletedTasks]) {
         [self deleteTask:nil];
@@ -132,6 +159,20 @@
 }
 
 #pragma mark - taskCompleted helper methods
+
+- (void)resetBackgroundImage
+{
+    [self.timerRingInterfaceGroup setBackgroundImageNamed:@"circles_background"];
+}
+
+- (void)resetMenuItemsTimeLabel
+{
+    [self clearAllMenuItems];
+    [self addMenuItemWithItemIcon:WKMenuItemIconPlay title:@"Start" action:@selector(startTask:)];
+    [self addMenuItemWithItemIcon:WKMenuItemIconTrash title:@"Delete" action:@selector(deleteTask:)];
+    [self.timeLabel setText:@"00:00"];
+
+}
 
 - (BOOL)shouldAutoDeleteCompletedTasks
 {

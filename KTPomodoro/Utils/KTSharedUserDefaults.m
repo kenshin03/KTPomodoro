@@ -20,30 +20,32 @@ static NSString *kKTSharedUserDefaultsBreakDuration = @"break_length";
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.corgitoergosum.KTPomodoro"];
-        [sharedDefaults registerDefaults:@{
-                                           kKTSharedUserDefaultsShouldAutoDeleteCompletedActivities:@(YES),
-                                           kKTSharedUserDefaultsBreakDuration:@(5),
-                                           kKTSharedUserDefaultsPomoDuration:@(25),
-                                           }];
+//  enabling this seems to cause some sort of deadlock - apple bug?
+//  work around is to return default values in getters
+//        [sharedDefaults registerDefaults:@{
+//                                           kKTSharedUserDefaultsShouldAutoDeleteCompletedActivities:@(YES),
+//                                           kKTSharedUserDefaultsBreakDuration:@(5),
+//                                           kKTSharedUserDefaultsPomoDuration:@(25),
+//                                           }];
     });
     return sharedDefaults;
 }
 
 + (NSUInteger)pomoDuration
 {
-    return [[KTSharedUserDefaults sharedUserDefaults] integerForKey:kKTSharedUserDefaultsPomoDuration];
+    return ([[KTSharedUserDefaults sharedUserDefaults] integerForKey:kKTSharedUserDefaultsPomoDuration]>0?[[KTSharedUserDefaults sharedUserDefaults] integerForKey:kKTSharedUserDefaultsPomoDuration]:25);
 
 }
 
 + (NSUInteger)breakDuration
 {
-    return [[KTSharedUserDefaults sharedUserDefaults] integerForKey:kKTSharedUserDefaultsBreakDuration];
+    return ([[KTSharedUserDefaults sharedUserDefaults] integerForKey:kKTSharedUserDefaultsBreakDuration]>0?[[KTSharedUserDefaults sharedUserDefaults] integerForKey:kKTSharedUserDefaultsBreakDuration]:5);
 }
 
 
 + (BOOL)shouldAutoDeleteCompletedActivites
 {
-    return [[KTSharedUserDefaults sharedUserDefaults] boolForKey:kKTSharedUserDefaultsShouldAutoDeleteCompletedActivities];
+    return ([[KTSharedUserDefaults sharedUserDefaults] boolForKey:kKTSharedUserDefaultsShouldAutoDeleteCompletedActivities]?[[KTSharedUserDefaults sharedUserDefaults] boolForKey:kKTSharedUserDefaultsShouldAutoDeleteCompletedActivities]:YES);
 }
 
 @end

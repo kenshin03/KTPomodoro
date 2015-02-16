@@ -77,6 +77,10 @@
 - (void)stopActivityOnInterruption
 {
     self.activity.status = @(KTPomodoroTaskStatusStopped);
+    [self updateSharedActiveActivityState:self.activity.activityID
+                              currentPomo:self.currentPomo
+                                   status:self.activity.status];
+
 
     // save to disk
     [[KTCoreDataStack sharedInstance] saveContext];
@@ -89,6 +93,9 @@
 - (void)stopActivity
 {
     self.activity.status = @(KTPomodoroTaskStatusStopped);
+    [self updateSharedActiveActivityState:self.activity.activityID
+                              currentPomo:self.currentPomo
+                                   status:self.activity.status];
 
     // save to disk
     [[KTCoreDataStack sharedInstance] saveContext];
