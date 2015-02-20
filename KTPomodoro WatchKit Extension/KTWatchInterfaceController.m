@@ -34,20 +34,32 @@
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
 
-    if (!context) {
-    }
     KTPomodoroActivityModel *activity = (KTPomodoroActivityModel*)context;
     self.activity = activity;
-    self.currentBackgroundImageString = @"";
-
     [self.taskNameLabel setText:activity.name];
     [self.plannedPomoLabel setText:[activity.expected_pomo stringValue]];
+    self.currentBackgroundImageString = @"";
     [self.remainingPomoLabel setText:[activity.expected_pomo stringValue]];
 
-    [self addMenuItemWithItemIcon:WKMenuItemIconPlay title:@"Start" action:@selector(startTask:)];
-    [self addMenuItemWithItemIcon:WKMenuItemIconTrash title:@"Delete" action:@selector(deleteTask:)];
-
     [self registerUserDefaultChanges];
+
+    if ((activity.status.integerValue == KTPomodoroTaskStatusInProgress) &&
+        [KTActivityManager sharedInstance].activity == self.activity){
+
+        // continue task
+        KTActivityManager *activityManager = [KTActivityManager sharedInstance];
+        activityManager.delegate = self;
+
+        [self clearAllMenuItems];
+        [self addMenuItemWithItemIcon:WKMenuItemIconBlock title:@"Interrupt" action:@selector(interruptTask:)];
+        [self addMenuItemWithItemIcon:WKMenuItemIconDecline title:@"Stop" action:@selector(stopTask:)];
+
+    } else {
+
+        [self addMenuItemWithItemIcon:WKMenuItemIconPlay title:@"Start" action:@selector(startTask:)];
+        [self addMenuItemWithItemIcon:WKMenuItemIconTrash title:@"Delete" action:@selector(deleteTask:)];
+
+    }
 
 }
 
@@ -103,10 +115,6 @@
 
 - (void)startTask:(id)sender
 {
-//    [KTActiveActivityTimer sharedInstance].activity = self.activity;
-//    [KTActiveActivityTimer sharedInstance].delegate = self;
-
-//
     KTActivityManager *activityManager = [KTActivityManager sharedInstance];
     activityManager.delegate = self;
     [activityManager startActivity:self.activity];
