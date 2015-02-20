@@ -47,9 +47,8 @@
 {
     NSArray *tasks = [[KTCoreDataStack sharedInstance] allTasks];
 
-    // if tasks count changed, reload table
+    // reload table
     if ([tasks count] != [self.allTasks count]) {
-        self.allTasks = tasks;
         [self clearTableRows];
 
         [self.table insertRowsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [tasks count])] withRowType:@"KTWatchTasksRowInterfaceController"];
@@ -57,6 +56,11 @@
         [tasks enumerateObjectsUsingBlock:^(KTPomodoroActivityModel *task, NSUInteger idx, BOOL *stop) {
             KTWatchTasksRowInterfaceController *row = (KTWatchTasksRowInterfaceController*)[self.table rowControllerAtIndex:idx];
             [row.taskNameLabel setText:task.name];
+            if (task.status.integerValue == KTPomodoroActivityStatusInProgress) {
+                [row.taskStatusLabel setText:@"In Progress"];
+            } else {
+                [row.taskStatusLabel setText:@""];
+            }
             [row.rowGroup setCornerRadius:0.0f];
             [row.rowGroup setAlpha:cellAlpha];
             if (cellAlpha > 0.2f) {
@@ -72,6 +76,20 @@
         [self.table insertRowsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange([tasks count], 1)] withRowType:@"KTWatchAddTaskRowInterfaceController"];
 
     }
+
+    [tasks enumerateObjectsUsingBlock:^(KTPomodoroActivityModel *task, NSUInteger idx, BOOL *stop) {
+        KTWatchTasksRowInterfaceController *row = (KTWatchTasksRowInterfaceController*)[self.table rowControllerAtIndex:idx];
+        [row.taskNameLabel setText:task.name];
+        if (task.status.integerValue == KTPomodoroActivityStatusInProgress) {
+            [row.taskStatusLabel setText:@"In Progress"];
+        } else {
+            [row.taskStatusLabel setText:@""];
+        }
+        if (idx > 0) {
+            [row.taskStatusLabel setHidden:YES];
+        }
+    }];
+    self.allTasks = tasks;
 }
 
 - (void)clearTableRows

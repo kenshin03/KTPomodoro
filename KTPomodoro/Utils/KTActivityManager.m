@@ -47,11 +47,13 @@
     return [KTSharedUserDefaults breakDuration];
 }
 
-- (void)startActivity:(KTPomodoroActivityModel*)activity
+- (void)startActivity:(KTPomodoroActivityModel*)activity error:(NSError**)error
 {
-    if ([self otherActityAlreadyInSharedState]){
+    if ([self hasOtherActiveActivityInSharedState:activity.activityID]){
         // log error
         // inform delegate
+        *error = [NSError errorWithDomain:@"com.corgitoergosum.net" code:KTPomodoroStartActivityOtherActivityActiveError userInfo:nil];
+
         return;
     }
     if (!activity) {
@@ -60,7 +62,7 @@
 
     self.activity = activity;
     self.activity.current_pomo_elapsed_time = @(0);
-    self.activity.status = @(KTPomodoroTaskStatusInProgress);
+    self.activity.status = @(KTPomodoroActivityStatusInProgress);
     self.currentPomo = 0;
     self.breakElapsed = 0;
 
@@ -76,7 +78,7 @@
 
 - (void)stopActivityOnInterruption
 {
-    self.activity.status = @(KTPomodoroTaskStatusStopped);
+    self.activity.status = @(KTPomodoroActivityStatusStopped);
     [self updateSharedActiveActivityState:self.activity.activityID
                               currentPomo:self.currentPomo
                                    status:self.activity.status];
@@ -92,7 +94,7 @@
 
 - (void)stopActivity
 {
-    self.activity.status = @(KTPomodoroTaskStatusStopped);
+    self.activity.status = @(KTPomodoroActivityStatusStopped);
     [self updateSharedActiveActivityState:self.activity.activityID
                               currentPomo:self.currentPomo
                                    status:self.activity.status];
@@ -148,12 +150,14 @@
 
 #pragma mark - startActivity: helper methods
 
-- (BOOL)otherActityAlreadyInSharedState
+- (BOOL)hasOtherActiveActivityInSharedState:(NSString*)activityID
 {
-    return NO;
-    // re-enable this later
-//    KTActiveActivityState *activity = [[KTSharedUserDefaults sharedUserDefaults] objectForKey:@"ActiveActivity"];
-//    return activity?YES:NO;
+    id encodedActivity = [[KTSharedUserDefaults sharedUserDefaults] objectForKey:@"ActiveActivity"];
+    KTActiveActivityState *activity = (KTActiveActivityState*)[NSKeyedUnarchiver unarchiveObjectWithData:encodedActivity];
+    if (!activityID || !activity) {
+        return NO;
+    }
+    return [activity.activityID isEqualToString:activityID] ? NO : YES;
 }
 
 - (void)updateSharedActiveActivityState:(NSString*)activityID currentPomo:(NSUInteger)currentPomo status:(NSNumber*)status
@@ -173,8 +177,13 @@
     activity.currentPomo = @(currentPomo);
     activity.status = status;
 
-    encodedActivity = [NSKeyedArchiver archivedDataWithRootObject:activity];
-    [[KTSharedUserDefaults sharedUserDefaults] setObject:encodedActivity forKey:@"ActiveActivity"];
+    if (status.integerValue == KTPomodoroActivityStatusStopped) {
+        [[KTSharedUserDefaults sharedUserDefaults] removeObjectForKey:@"ActiveActivity"];
+
+    } else {
+        encodedActivity = [NSKeyedArchiver archivedDataWithRootObject:activity];
+        [[KTSharedUserDefaults sharedUserDefaults] setObject:encodedActivity forKey:@"ActiveActivity"];
+    }
 }
 
 - (void)invalidateTimers
@@ -249,7 +258,7 @@
 
 - (void)completeActivityOnLastPomo
 {
-    self.activity.status = @(KTPomodoroTaskStatusCompleted);
+    self.activity.status = @(KTPomodoroActivityStatusCompleted);
     self.activity.actual_pomo = @(self.currentPomo);
 
     // save to disk

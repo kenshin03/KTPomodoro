@@ -42,23 +42,28 @@
     [self.remainingPomoLabel setText:[activity.expected_pomo stringValue]];
 
     [self registerUserDefaultChanges];
+    [self clearAllMenuItems];
 
-    if ((activity.status.integerValue == KTPomodoroTaskStatusInProgress) &&
-        [KTActivityManager sharedInstance].activity == self.activity){
+    KTActivityManager *activityManager = [KTActivityManager sharedInstance];
+    if (activity.status.integerValue == KTPomodoroActivityStatusInProgress){
+
+        if ([KTActivityManager sharedInstance].activity != self.activity) {
+
+            [[KTActivityManager sharedInstance] startActivity:activity error:nil];
+        }
 
         // continue task
-        KTActivityManager *activityManager = [KTActivityManager sharedInstance];
         activityManager.delegate = self;
 
-        [self clearAllMenuItems];
         [self addMenuItemWithItemIcon:WKMenuItemIconBlock title:@"Interrupt" action:@selector(interruptTask:)];
         [self addMenuItemWithItemIcon:WKMenuItemIconDecline title:@"Stop" action:@selector(stopTask:)];
 
     } else {
 
-        [self addMenuItemWithItemIcon:WKMenuItemIconPlay title:@"Start" action:@selector(startTask:)];
-        [self addMenuItemWithItemIcon:WKMenuItemIconTrash title:@"Delete" action:@selector(deleteTask:)];
-
+        if (![activityManager hasOtherActiveActivityInSharedState:activity.activityID]) {
+            [self addMenuItemWithItemIcon:WKMenuItemIconPlay title:@"Start" action:@selector(startTask:)];
+            [self addMenuItemWithItemIcon:WKMenuItemIconTrash title:@"Delete" action:@selector(deleteTask:)];
+        }
     }
 
 }
@@ -115,16 +120,18 @@
 
 - (void)startTask:(id)sender
 {
+    NSError *startTaskError;
     KTActivityManager *activityManager = [KTActivityManager sharedInstance];
     activityManager.delegate = self;
-    [activityManager startActivity:self.activity];
+    [activityManager startActivity:self.activity error:&startTaskError];
 
+    if (!startTaskError) {
+        [self.timeLabel setText:[NSString stringWithFormat:@"%@:00", @([KTActivityManager pomodoroDurationMinutes])]];
 
-    [self.timeLabel setText:[NSString stringWithFormat:@"%@:00", @([KTActivityManager pomodoroDurationMinutes])]];
-
-    [self clearAllMenuItems];
-    [self addMenuItemWithItemIcon:WKMenuItemIconBlock title:@"Interrupt" action:@selector(interruptTask:)];
-    [self addMenuItemWithItemIcon:WKMenuItemIconDecline title:@"Stop" action:@selector(stopTask:)];
+        [self clearAllMenuItems];
+        [self addMenuItemWithItemIcon:WKMenuItemIconBlock title:@"Interrupt" action:@selector(interruptTask:)];
+        [self addMenuItemWithItemIcon:WKMenuItemIconDecline title:@"Stop" action:@selector(stopTask:)];
+    }
 }
 
 - (void)stopTask:(id)sender
@@ -213,7 +220,7 @@
 
     [self.remainingPomoLabel setText:[@(remainingPomo) stringValue]];
 
-    if ([activity.status integerValue] == KTPomodoroTaskStatusCompleted) {
+    if ([activity.status integerValue] == KTPomodoroActivityStatusCompleted) {
         [self.taskNameLabel setText:@"Yeah done!"];
         [self taskCompleted];
     }

@@ -28,13 +28,13 @@
 + (NSUInteger)pomoRemainingSecsInCurrentMinute:(NSUInteger)totalRemainingSecs;
 
 
-- (void)startActivity:(KTPomodoroActivityModel*)activity;
+- (void)startActivity:(KTPomodoroActivityModel*)activity error:(NSError**)error;
 
 - (void)stopActivity;
 
 - (void)stopActivityOnInterruption;
 
-
+- (BOOL)hasOtherActiveActivityInSharedState:(NSString*)activityID;
 
 @end
 

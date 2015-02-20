@@ -8,13 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
+
+
 @interface KTPomodoroTaskConstants : NSObject
 
-typedef NS_ENUM (NSUInteger, KTPomodoroTaskStatus) {
-    KTPomodoroTaskStatusUnknown,
-    KTPomodoroTaskStatusInProgress,
-    KTPomodoroTaskStatusStopped,
-    KTPomodoroTaskStatusCompleted,
+typedef NS_ENUM (NSUInteger, KTPomodoroActivityStatus) {
+    KTPomodoroActivityStatusInProgress = 0,
+    KTPomodoroActivityStatusStopped,
+    KTPomodoroActivityStatusCompleted,
+    KTPomodoroActivityStatusUnknown
 };
+
+typedef NS_ENUM (NSUInteger, KTPomodoroStartActivityError) {
+    KTPomodoroStartActivityOtherActivityActiveError = 0,
+};
+
 
 @end

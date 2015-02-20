@@ -19,6 +19,7 @@
     dispatch_once(&onceToken, ^{
         _instance = [KTCoreDataStack new];
         [_instance seedData];
+
     });
     return _instance;
 }
@@ -32,10 +33,11 @@
     KTPomodoroActivityModel *newTask1 = (KTPomodoroActivityModel*)[[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:self.managedObjectContext];
     newTask1.name = taskName;
     newTask1.desc = description;
-    newTask1.status = @(KTPomodoroTaskStatusStopped);
+    newTask1.status = @(KTPomodoroActivityStatusStopped);
     newTask1.expected_pomo = @(pomodoros);
     newTask1.actual_pomo = @(0);
     newTask1.created_time = [NSDate new];
+    newTask1.activityID = [[NSUUID UUID] UUIDString];
 
     return newTask1;
 }
@@ -48,17 +50,19 @@
         NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"KTPomodoroActivityModel" inManagedObjectContext:self.managedObjectContext];
 
         KTPomodoroActivityModel *newTask1 = (KTPomodoroActivityModel*)[[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:self.managedObjectContext];
+        newTask1.activityID = [[NSUUID UUID] UUIDString];
         newTask1.name = @"Task 1";
         newTask1.desc = @"Task desc";
-        newTask1.status = @(KTPomodoroTaskStatusStopped);
+        newTask1.status = @(KTPomodoroActivityStatusStopped);
         newTask1.expected_pomo = @(1);
         newTask1.actual_pomo = @(0);
         newTask1.created_time = [NSDate new];
 
         KTPomodoroActivityModel *newTask2 = (KTPomodoroActivityModel*)[[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:self.managedObjectContext];
+        newTask2.activityID = [[NSUUID UUID] UUIDString];
         newTask2.name = @"Task 2";
         newTask2.desc = @"Task desc";
-        newTask2.status = @(KTPomodoroTaskStatusStopped);
+        newTask2.status = @(KTPomodoroActivityStatusStopped);
         newTask2.expected_pomo = @(1);
         newTask2.actual_pomo = @(0);
         newTask2.created_time = [NSDate new];
@@ -70,8 +74,10 @@
 {
     NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:@"KTPomodoroActivityModel"];
 
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"created_time" ascending:NO];
-    request.sortDescriptors = @[sortDescriptor];
+    NSSortDescriptor *createdTimeDescriptor = [[NSSortDescriptor alloc] initWithKey:@"created_time" ascending:NO];
+    NSSortDescriptor *inProgressStatusDescriptor = [[NSSortDescriptor alloc] initWithKey:@"status" ascending:YES];
+
+    request.sortDescriptors = @[inProgressStatusDescriptor, createdTimeDescriptor];
 
     NSArray* objects = [self.managedObjectContext executeFetchRequest:request error:NULL];
     return objects;
