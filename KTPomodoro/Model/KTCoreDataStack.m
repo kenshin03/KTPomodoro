@@ -9,6 +9,9 @@
 #import "KTCoreDataStack.h"
 #import "KTPomodoroTaskConstants.h"
 
+// This turns storing CoreData persistance store in app container on and off.
+#define kKTCoreDataStackShouldUseAppContainer 0
+
 
 @implementation KTCoreDataStack
 
@@ -114,14 +117,17 @@
     // Create the coordinator and store
 
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
+    NSURL *storeURL = nil;
 
+#if kKTCoreDataStackShouldUseAppContainer
     NSString *appGroupID = @"group.com.corgitoergosum.KTPomodoro";
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSURL *appGroupURL = [fileManager containerURLForSecurityApplicationGroupIdentifier:appGroupID];
+    storeURL = [appGroupURL URLByAppendingPathComponent:@"KTPomodoro.sqlite"];
 
-//    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"KTPomodoro.sqlite"];
-
-    NSURL *storeURL = [appGroupURL URLByAppendingPathComponent:@"KTPomodoro.sqlite"];
+#else
+    storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"KTPomodoro.sqlite"];
+#endif
 
     NSError *error = nil;
     NSString *failureReason = @"There was an error creating or loading the application's saved data.";

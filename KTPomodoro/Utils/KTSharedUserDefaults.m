@@ -8,6 +8,10 @@
 
 #import "KTSharedUserDefaults.h"
 
+// This turns storing UserDefaults storing in app container on and off.
+#define kKTSharedUserDefaultsShouldUseAppContainer 0
+
+
 static NSString *kKTSharedUserDefaultsShouldAutoDeleteCompletedActivities = @"delete_completed_activities";
 static NSString *kKTSharedUserDefaultsPomoDuration = @"pomo_length";
 static NSString *kKTSharedUserDefaultsBreakDuration = @"break_length";
@@ -19,14 +23,11 @@ static NSString *kKTSharedUserDefaultsBreakDuration = @"break_length";
     static NSUserDefaults *sharedDefaults;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+#ifdef kKTSharedUserDefaultsShouldUseAppContainer
         sharedDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.corgitoergosum.KTPomodoro"];
-//  enabling this seems to cause some sort of deadlock - apple bug?
-//  work around is to return default values in getters
-//        [sharedDefaults registerDefaults:@{
-//                                           kKTSharedUserDefaultsShouldAutoDeleteCompletedActivities:@(YES),
-//                                           kKTSharedUserDefaultsBreakDuration:@(5),
-//                                           kKTSharedUserDefaultsPomoDuration:@(25),
-//                                           }];
+#else
+        sharedDefaults = [NSUserDefaults standardUserDefaults];
+#endif
     });
     return sharedDefaults;
 }
